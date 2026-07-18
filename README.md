@@ -34,7 +34,7 @@ SketchUp Make 2017 is unsupported by Trimble. The SketchUp installer is not incl
 
 Untagged geometry is never guessed or exported. Mirrored, sheared, pitched, rolled, exploded, or otherwise unsafe props block export.
 
-Models imported with `0.1.0-beta.1` must be re-imported from their original `.STG` file after upgrading. Beta 2 corrects the reflected yaw convention, adjustable fault-line base size, and visual ground placement; exporting an older imported model is intentionally blocked.
+Models imported with `0.1.0-beta.1` or `0.1.0-beta.2` must be re-imported from their original `.STG` file after upgrading. Beta 3 corrects adjustable fault-line endpoint placement and custom colors, maps the double-X start marker, and supplies a tagged swinger assembly. Exporting an older imported model is intentionally blocked.
 
 For a complete hands-on beta pass, follow `Docs/Manual-Beta-Test.md`.
 
@@ -55,4 +55,4 @@ Real stages remain outside the repository. The checked-in fixture is synthetic a
 
 The first release lane is a free signed RBZ beta distributed outside Extension Warehouse. Upload the unsigned RBZ produced by `Build-Rbz.ps1` to SketchUp's Extension Signature Portal, download the signed result, and repeat the clean-profile installation test under the `Identified Extensions Only` loading policy.
 
-GitHub Actions builds and validates an **unsigned** RBZ for every main-branch update and pull request. Public GitHub release assets must use the portal-produced signed RBZ. Follow `Docs/Release-Checklist.md` and use `Docs/Release-0.1.0-beta.2.md` as the beta 2 release body.
+GitHub Actions builds and validates an **unsigned** RBZ for every main-branch update and pull request. Public GitHub release assets must use the portal-produced signed RBZ. Follow `Docs/Release-Checklist.md` and use `Docs/Release-0.1.0-beta.3.md` as the beta 3 release body.

@@ -1,6 +1,6 @@
 # Supported Prop Catalog
 
-Beta 2 uses curated SketchUp 2017 component assets from the public stage-building prop collection for common targets, walls, barrels, and start markers. Props without a mapped asset use local procedural geometry. Both paths remain fully offline.
+Beta 3 uses curated SketchUp 2017 component assets from the public stage-building prop collection for common targets, walls, barrels, and start markers. Props without a mapped asset use local procedural geometry. Both paths remain fully offline.
 
 | Catalog item | Primary Practisim name | Notable aliases | Scoring contribution |
 |---|---|---|---|
@@ -19,6 +19,8 @@ Beta 2 uses curated SketchUp 2017 component assets from the public stage-buildin
 | Plastic barrel | `barrel-plastic` | — | None |
 | Plastic barrel stack | `barrel-plastic-stack` | — | None |
 | Start position | `start-position` | — | None |
+| Double-X start position | `ssi-double-x-start-box` | — | None |
+| USPSA swinger | `uspsa-swinger` | `uspsa-swinger-right` | 1 paper |
 | Folding table | `folding-table` | — | None |
 | Two-stack hard cover | `uspsa-two-stack-hc` | — | 2 paper |
 | Two-stack no-shoot | `uspsa-two-stack-noshoot` | `uspsa-two-noshoot-vert` | 2 paper, 1 no-shoot |

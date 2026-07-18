@@ -20,6 +20,8 @@ module StatusCheckGG
           material = material_for(model, "Stage Bridge #{entry[:key]}", entry[:color], 1.0)
           dimensions = entry[:dimensions]
           case entry[:builder]
+          when :adjustable_faultline
+            build_adjustable_faultline(definition.entities, dimensions)
           when :wall
             build_wall(definition.entities, dimensions, model)
           when :target
@@ -32,10 +34,22 @@ module StatusCheckGG
             build_table(definition.entities, dimensions, material, model)
           when :stacked_target
             build_stacked_target(definition.entities, dimensions, material)
+          when :swinger
+            build_swinger(definition.entities, dimensions, material, model)
+          when :double_x_start
+            build_double_x_start(definition.entities, dimensions, material)
           else
             add_box(definition.entities, dimensions[0], dimensions[1], dimensions[2], material, 0.0, 0.0, 0.0)
           end
           definition
+        end
+
+        def self.build_adjustable_faultline(entities, dimensions)
+          width = dimensions[0]
+          # Practisim's adjustable fault-line translation is the starting end
+          # of its 0.1-meter base mesh, not the center of the scaled line.
+          # Leave faces unpainted so each instance can display customColor.
+          add_box(entities, width, dimensions[1], dimensions[2], nil, width / 2.0, 0.0, 0.0)
         end
 
         def self.build_from_asset(wrapper, model, entry)
@@ -167,6 +181,26 @@ module StatusCheckGG
           single_height = dimensions[2] / 2.0
           build_target_at(entities, [dimensions[0], dimensions[1], single_height], material, 24.0)
           build_target_at(entities, [dimensions[0], dimensions[1], single_height], material, 24.0 + (single_height * 0.75))
+        end
+
+        def self.build_swinger(entities, dimensions, material, model)
+          frame = material_for(model, 'Stage Bridge Swinger Frame', [72, 76, 80], 1.0)
+          add_box(entities, 30.0, 18.0, 1.5, frame, 0.0, 0.0, 0.0)
+          add_box(entities, 1.5, 1.5, 34.0, frame, 0.0, 0.0, 1.5)
+          add_box(entities, 24.0, 1.5, 1.5, frame, 0.0, 0.0, 34.0)
+          build_target_at(entities, [dimensions[0], 1.0, dimensions[2]], material, 35.5)
+        end
+
+        def self.build_double_x_start(entities, _dimensions, material)
+          [-7.0, 7.0].each do |center_x|
+            [-Math::PI / 4.0, Math::PI / 4.0].each do |angle|
+              bar = entities.add_group
+              add_box(bar.entities, 11.0, 1.5, 0.25, material, 0.0, 0.0, 0.0)
+              translation = Geom::Transformation.translation([center_x, 0.0, 0.0])
+              rotation = Geom::Transformation.rotation(ORIGIN, Z_AXIS, angle)
+              bar.transform!(translation * rotation)
+            end
+          end
         end
 
         def self.add_box(entities, width, depth, height, material, center_x, center_y, base_z)

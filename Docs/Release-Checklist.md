@@ -3,11 +3,11 @@
 ## Source Freeze
 
 - [ ] Confirm `status_check_stage_bridge/constants.rb` contains the release version.
-- [ ] Run `Tools\Run-SketchUp2017Smoke.ps1 -ReferenceStagePaths $garage,$crabLegs` with all other SketchUp windows closed and the two external verification paths assigned locally.
+- [ ] Run `Tools\Run-SketchUp2017Smoke.ps1 -ReferenceStagePaths $garage,$crabLegs,$bay7` with all other SketchUp windows closed and the three external verification paths assigned locally.
 - [ ] Build with `Tools\Build-Rbz.ps1`.
 - [ ] Run `Tools\Test-RbzStructure.ps1` against the built RBZ.
 - [ ] Record the unsigned RBZ SHA-256 in the verification note.
-- [ ] Commit the source freeze and tag it `v0.1.0-beta.2`.
+- [ ] Commit the source freeze and tag it `v0.1.0-beta.3`.
 
 ## Signing
 
@@ -20,8 +20,8 @@
 
 ## GitHub Draft Release
 
-- [ ] Create a draft release for tag `v0.1.0-beta.2`.
-- [ ] Use `Docs\Release-0.1.0-beta.2.md` as the release body.
+- [ ] Create a draft release for tag `v0.1.0-beta.3`.
+- [ ] Use `Docs\Release-0.1.0-beta.3.md` as the release body.
 - [ ] Mark the release as a prerelease.
 - [ ] Attach only the signed RBZ and its SHA-256 file as public release assets.
 - [ ] Do not attach the SketchUp installer, real Practisim stages, temporary review models, or the full source prop collection.

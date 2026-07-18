@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-beta.3 - 2026-07-18
+
+- Corrected adjustable fault-line origins so Practisim translations identify the start endpoint instead of the center of the line.
+- Preserved imported adjustable fault-line colors, including custom red and green lines.
+- Added a dedicated double-X start-position component for `ssi-double-x-start-box`.
+- Added a tagged procedural swinger assembly for `uspsa-swinger` and `uspsa-swinger-right` instead of using an unsupported-prop placeholder.
+- Added endpoint, color, double-X, and swinger regressions to the SketchUp 2017 smoke test.
+- Blocked export from models imported with earlier beta transform profiles so corrected stages are always re-imported from the original `.STG`.
+
 ## 0.1.0-beta.2 - 2026-07-18
 
 - Corrected visual yaw after the Practisim-to-SketchUp Y-axis reflection.

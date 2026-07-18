@@ -66,6 +66,15 @@ module StageBridgeCoreTests
       StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('faultline-adjustable')[:key] == 'faultline_adjustable',
       'Adjustable fault line must not reuse the fixed 8-foot definition'
     )
+    assert(adjustable[:builder] == :adjustable_faultline, 'Adjustable fault line must use endpoint geometry')
+    assert(
+      StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('ssi-double-x-start-box')[:key] == 'double_x_start',
+      'Double-X starting position must not use an unknown placeholder'
+    )
+    assert(
+      StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-swinger')[:key] == 'uspsa_swinger',
+      'USPSA swinger must not use an unknown placeholder'
+    )
 
     utf16 = StatusCheckGG::StageBridge::Core::EncodingHelper.encode(document.source_json, 'utf16le')
     decoded, encoding_name = StatusCheckGG::StageBridge::Core::EncodingHelper.decode(utf16)
@@ -131,7 +140,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 24 }
+    { 'status' => 'passed', 'tests' => 27 }
   end
 end
 

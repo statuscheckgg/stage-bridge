@@ -437,7 +437,26 @@ module StatusCheckGG
           instance.set_attribute(ENTITY_DICTIONARY, 'original_prop_json', JSON.generate(prop))
           instance.set_attribute(ENTITY_DICTIONARY, 'is_new', is_new)
           instance.set_attribute(ENTITY_DICTIONARY, 'display_z_offset', display_z_offset)
+          apply_custom_appearance(model, instance, prop, entry)
           instance
+        end
+
+        def self.apply_custom_appearance(model, instance, prop, entry)
+          return if entry.nil? || !entry[:custom_color]
+          color = prop['customColor']
+          return unless color.is_a?(Hash)
+          red = color_component(color, 'R')
+          green = color_component(color, 'G')
+          blue = color_component(color, 'B')
+          alpha = Core::Transform.number_value_with_default(color, 1.0, 'A', 'a')
+          alpha = [[alpha, 0.0].max, 1.0].min
+          name = "Stage Bridge Custom #{red}-#{green}-#{blue}-#{(alpha * 255.0).round}"
+          instance.material = Geometry.material_for(model, name, [red, green, blue], alpha)
+        end
+
+        def self.color_component(color, key)
+          value = Core::Transform.number_value_with_default(color, 0.0, key, key.downcase)
+          ([[value, 0.0].max, 1.0].min * 255.0).round
         end
 
         def self.display_ground_offset(definition, mapped)

@@ -14,26 +14,29 @@ The installer is user-owned and is not copied into or distributed with this proj
 
 ## Passing Tests
 
-- Ruby 2.2-compatible core suite: 24 checks, including reflected yaw, adjustable fault-line base size, activation links, and safe write/overwrite/backup behavior
+- Ruby 2.2-compatible core suite: 27 checks, including reflected yaw, adjustable fault-line endpoint mapping, double-X and swinger catalog mappings, activation links, and safe write/overwrite/backup behavior
 - Synthetic import/export: 4 props; zero diagnostics
 - Tagged edit scenario: move, yaw rotation, non-uniform scale, add, duplicate, delete, and new-ID assignment; 5 resulting props
 - Invalid transform scenario: mirrored component rejected
 - Adjustable fault-line visual regression: source scale `24.384` renders at approximately `96` inches
+- Adjustable fault-line endpoint regression: the component's minimum local X remains at the imported Practisim translation, and custom instance color is preserved
+- Dedicated double-X start-position and swinger geometry regressions
 - Negative source-Z visual regression: prop is displayed above ground while export returns the untouched source Z
 - Packaged component regression: 8 component assets present; tested walls, targets, barrels, and start-position dimensions with bottom-center origins
 - `Garage-Test3.STG`: 16 props, zero diagnostics, maximum position delta `0.0` source units, maximum yaw delta `1.2722218725854067e-14` degrees
 - `CrabLegs-Jason Brant.STG`: 43 props, zero diagnostics, maximum position delta `1.1368683772161603e-13` source units, maximum yaw delta `1.2722218725854067e-14` degrees
-- Visual review: reference model props were upright and grounded with no runaway fault-line geometry
+- `Bay7-Clostivator-JB.STG`: 45 props, zero diagnostics, maximum position delta `5.684341886080802e-14` source units, maximum yaw delta `1.2722218725854067e-14` degrees
+- Visual review: Bay 7 reference model props were upright and grounded; adjustable fault lines began at their source endpoints with red/green colors; the double-X start marker and swinger were no longer magenta placeholders
 - RBZ structure: 24 entries, one root loader, one namespaced support folder, 8 hash-verified component assets, one source manifest, and no unexpected roots
 
 Real reference stages stayed external to the repository. Generated `.skp` review artifacts live under `C:\Vibes\Temp\practisim-sketchup-bridge`.
-The release verification run passed both external files through `Run-SketchUp2017Smoke.ps1 -ReferenceStagePaths <paths>`; their local source paths are intentionally not stored in the public repository.
+The release verification run passed all three external files through `Run-SketchUp2017Smoke.ps1 -ReferenceStagePaths <paths>`; their local source paths are intentionally not stored in the public repository.
 
 ## Release Candidate
 
-- Unsigned RBZ: `C:\Vibes\Projects\Personal\practisim-sketchup-bridge\dist\stage-bridge-0.1.0-beta.2.rbz`
-- Unsigned RBZ size: `1,160,847` bytes
-- Unsigned RBZ SHA-256: `C7F82A612889A9521CCDB7D0847D8610885F7F240102E5703F40CB3AB3378294`
+- Unsigned RBZ: `C:\Vibes\Projects\Personal\practisim-sketchup-bridge\dist\stage-bridge-0.1.0-beta.3.rbz`
+- Unsigned RBZ size: `1,161,607` bytes
+- Unsigned RBZ SHA-256: `F3148ACBB2B828EB7126C0FCB7A1485AAC6C3C7985119DE77BFDC4AD96B00487`
 - Signing status: pending authenticated upload to SketchUp's Extension Signature Portal
 
 The unsigned package is suitable for local development testing. Do not call it the signed public beta until the portal-produced package passes a clean-profile install under `Identified Extensions Only`.

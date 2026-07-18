@@ -2,19 +2,19 @@
 
 Use a copy of a familiar Practisim stage containing several walls, targets, fault lines, and barrels. Keep the original `.STG` unchanged.
 
-## 1. Install Beta 2
+## 1. Install Beta 3
 
 1. Close SketchUp.
 2. Open SketchUp Make 2017.
 3. Select `Window > Extension Manager`.
 4. Select `Install Extension`.
-5. Choose `stage-bridge-0.1.0-beta.2.rbz`.
+5. Choose `stage-bridge-0.1.0-beta.3.rbz`.
 6. Restart SketchUp if requested.
 7. Confirm that `Extensions > Stage Bridge` is present.
 
 This development package is unsigned. If SketchUp refuses to load it, temporarily select the `Unrestricted` extension-loading policy for this local test. Restore the stricter policy after testing. The public release will use a signed RBZ.
 
-Do not reuse a SketchUp model imported with beta 1. Start with the original `.STG` file.
+Do not reuse a SketchUp model imported with beta 1 or beta 2. Start with the original `.STG` file.
 
 ## 2. Import a Known Stage
 
@@ -30,6 +30,9 @@ Before editing, confirm:
 - Paper targets and no-shoots are upright unless the Practisim prop is intentionally tilted.
 - Barrels rest on the ground.
 - Fault lines are normal stage lengths and do not cross the model indefinitely.
+- Adjustable fault lines begin at the same Practisim endpoint and retain their custom color.
+- A double-X start position appears as two X marks, not a magenta box.
+- Swinger targets appear as tagged target/frame assemblies, not magenta boxes.
 - Relative prop positions and facing directions match the familiar Practisim stage.
 - Unsupported props appear as magenta placeholders instead of disappearing.
 

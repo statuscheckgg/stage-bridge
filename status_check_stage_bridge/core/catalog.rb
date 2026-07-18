@@ -5,7 +5,7 @@ module StatusCheckGG
         ENTRIES = [
           {
             :key => 'faultline_adjustable', :display => 'Fault Line - Adjustable', :prop_name => 'faultline-adjustable',
-            :aliases => ['faultline-adjustable'], :builder => :box,
+            :aliases => ['faultline-adjustable'], :builder => :adjustable_faultline, :custom_color => true,
             :dimensions => [Transform::ADJUSTABLE_MESH_INCHES, Transform::ADJUSTABLE_MESH_INCHES, Transform::ADJUSTABLE_MESH_INCHES],
             :color => [235, 196, 35], :paper => 0, :steel => 0, :no_shoot => 0
           },
@@ -93,6 +93,12 @@ module StatusCheckGG
             :paper => 0, :steel => 0, :no_shoot => 1
           },
           {
+            :key => 'uspsa_swinger', :display => 'USPSA Paper Swinger', :prop_name => 'uspsa-swinger',
+            :aliases => ['uspsa-swinger', 'uspsa-swinger-right'], :builder => :swinger,
+            :dimensions => [18.125, 18.0, 30.0], :color => [181, 133, 87],
+            :paper => 1, :steel => 0, :no_shoot => 0
+          },
+          {
             :key => 'uspsa_popper', :display => 'USPSA Popper', :prop_name => 'uspsa-popper',
             :aliases => ['uspsa-popper', 'uspsa-full-popper', 'ipsc-popper', 'ipsc-full-popper'],
             :builder => :popper, :dimensions => [12.0, 1.0, 42.0], :color => [170, 175, 180],
@@ -121,6 +127,12 @@ module StatusCheckGG
             :aliases => ['start-position'], :builder => :box, :dimensions => [24.0, 24.0, 0.25],
             :asset => 'start_position.skp', :asset_scale => [0.6666666667, 0.6666666667, 0.25],
             :color => [30, 210, 220], :paper => 0, :steel => 0, :no_shoot => 0
+          },
+          {
+            :key => 'double_x_start', :display => 'Start Position - Double X', :prop_name => 'ssi-double-x-start-box',
+            :aliases => ['ssi-double-x-start-box'], :builder => :double_x_start,
+            :dimensions => [28.0, 12.0, 0.25], :color => [220, 35, 45],
+            :paper => 0, :steel => 0, :no_shoot => 0
           },
           {
             :key => 'folding_table', :display => 'Folding Table', :prop_name => 'folding-table',

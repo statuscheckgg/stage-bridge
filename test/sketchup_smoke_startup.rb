@@ -167,6 +167,7 @@ UI.start_timer(1.0, false) do
     adjustable_entry = StatusCheckGG::StageBridge::Core::Catalog.by_key('faultline_adjustable')
     adjustable_prop = StatusCheckGG::StageBridge::Core::Catalog.new_prop(adjustable_entry, 900001)
     adjustable_prop['propTransform']['Scale3D'] = { 'X' => 24.384, 'Y' => 0.5, 'Z' => 1.0 }
+    adjustable_prop['customColor'] = { 'R' => 1.0, 'G' => 0.0, 'B' => 0.0, 'A' => 1.0 }
     adjustable_instance = StatusCheckGG::StageBridge::SketchupIntegration::ModelAdapter.add_prop_instance(
       model, root_group, adjustable_prop, -1, StatusCheckGG::StageBridge::SketchupIntegration::ModelAdapter.anchor_for(model), true
     )
@@ -174,7 +175,26 @@ UI.start_timer(1.0, false) do
     unless (adjustable_length - 96.0).abs < 0.05
       raise "Adjustable 8-foot fault line rendered at #{adjustable_length} inches"
     end
+    adjustable_origin = adjustable_instance.transformation.origin
+    if (adjustable_instance.bounds.min.x.to_f - adjustable_origin.x.to_f).abs > 0.001
+      raise 'Adjustable fault line did not begin at the Practisim translation endpoint'
+    end
+    if adjustable_instance.material.nil? || adjustable_instance.material.color.red < 250
+      raise 'Adjustable fault line did not preserve its custom instance color'
+    end
     adjustable_instance.erase!
+
+    double_x_entry = StatusCheckGG::StageBridge::Core::Catalog.by_key('double_x_start')
+    double_x_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
+      model, double_x_entry, double_x_entry[:prop_name]
+    )
+    raise 'Double-X start marker did not build four crossed bars' unless double_x_definition.entities.grep(Sketchup::Group).length == 4
+
+    swinger_entry = StatusCheckGG::StageBridge::Core::Catalog.by_key('uspsa_swinger')
+    swinger_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
+      model, swinger_entry, swinger_entry[:prop_name]
+    )
+    raise 'USPSA swinger definition was empty' if swinger_definition.entities.length == 0
 
     grounded_prop = StatusCheckGG::StageBridge::Core::Catalog.new_prop(
       StatusCheckGG::StageBridge::Core::Catalog.by_key('wall_4ft'), 900002
