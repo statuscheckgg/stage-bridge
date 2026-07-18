@@ -36,6 +36,8 @@ Untagged geometry is never guessed or exported. Mirrored, sheared, pitched, roll
 
 Models imported with `0.1.0-beta.1` must be re-imported from their original `.STG` file after upgrading. Beta 2 corrects the reflected yaw convention, adjustable fault-line base size, and visual ground placement; exporting an older imported model is intentionally blocked.
 
+For a complete hands-on beta pass, follow `Docs/Manual-Beta-Test.md`.
+
 ## Development
 
 ```powershell

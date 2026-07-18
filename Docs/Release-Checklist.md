@@ -15,7 +15,7 @@
 - [ ] Download the portal-produced signed RBZ without unpacking or rebuilding it.
 - [ ] Confirm the signed RBZ still passes `Tools\Test-RbzStructure.ps1`.
 - [ ] Install the signed RBZ in a disposable SketchUp Make 2017 profile with `Identified Extensions Only` enabled.
-- [ ] Verify import, validation, and export from the clean profile.
+- [ ] Complete `Docs\Manual-Beta-Test.md` against a familiar external stage from the clean profile.
 - [ ] Record the signed RBZ SHA-256 separately from the unsigned package hash.
 
 ## GitHub Draft Release
