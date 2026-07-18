@@ -1,0 +1,44 @@
+name: Package unsigned RBZ
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build RBZ
+        id: build
+        shell: pwsh
+        run: |
+          $rbz = .\Tools\Build-Rbz.ps1
+          "rbz=$rbz" >> $env:GITHUB_OUTPUT
+
+      - name: Validate RBZ structure and component manifest
+        shell: pwsh
+        run: .\Tools\Test-RbzStructure.ps1 -RbzPath '${{ steps.build.outputs.rbz }}' | Format-List
+
+      - name: Write checksum
+        shell: pwsh
+        run: |
+          $rbz = '${{ steps.build.outputs.rbz }}'
+          $hash = (Get-FileHash -LiteralPath $rbz -Algorithm SHA256).Hash.ToLowerInvariant()
+          "$hash  $([IO.Path]::GetFileName($rbz))" | Set-Content -LiteralPath "$rbz.sha256" -Encoding ascii
+
+      - name: Upload unsigned package
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage-bridge-unsigned-rbz
+          path: |
+            ${{ steps.build.outputs.rbz }}
+            ${{ steps.build.outputs.rbz }}.sha256
+          if-no-files-found: error

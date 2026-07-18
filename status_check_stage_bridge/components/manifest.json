@@ -1,0 +1,58 @@
+{
+  "source_collection": {
+    "name": "Big Prop File.skp",
+    "bytes": 16337519,
+    "sha256": "A12EF8A51E523EFCC848F6D51EE4B7E710C35F1A0EAB680AECAFE024DDD6698A",
+    "distribution_statement": "User-confirmed publicly available and free to distribute for stage building"
+  },
+  "assets": [
+    {
+      "file": "barrel.skp",
+      "source_definition": "ske245",
+      "bytes": 1124304,
+      "sha256": "C2287BAD3BC7A38DA2EBCA00B25F3C8564054F5AD2D7634DB6561645CF57D9FC"
+    },
+    {
+      "file": "barrel_stack.skp",
+      "source_definition": "Stacked_Barrels",
+      "bytes": 1120232,
+      "sha256": "662087FD26809840D8E233CC654268975BC49D56AB72083E4BD4CE7D7898E0D9"
+    },
+    {
+      "file": "start_position.skp",
+      "source_definition": "USPSA Shooting Box- 3X3",
+      "bytes": 24423,
+      "sha256": "7D047A704CD447B7E908E4588F725226C422344357927091FFD769B8801686F8"
+    },
+    {
+      "file": "uspsa_no_shoot_high.skp",
+      "source_definition": "USPSA No shoot High",
+      "bytes": 67150,
+      "sha256": "76EEC183BADD81C8AA8F6261E50C983B69C7B1AF0B6380DD6A352862A65ABA9A"
+    },
+    {
+      "file": "uspsa_target_high.skp",
+      "source_definition": "Uspsa target and stand high#1",
+      "bytes": 80546,
+      "sha256": "E2B0CA40C661A8ADED9C6A5B2D06C6F00941E2DC3623DF1153E49BDF34042D90"
+    },
+    {
+      "file": "uspsa_target_short.skp",
+      "source_definition": "USPSA target and stand#10",
+      "bytes": 85107,
+      "sha256": "15C6FCB615C57EE72B42661D22BE073151C52C13DB316753520BDB9412973F2A"
+    },
+    {
+      "file": "uspsa_target_short_tilted.skp",
+      "source_definition": "USPSA target and stand#8",
+      "bytes": 80452,
+      "sha256": "72BCF17E7C337D45C50D71347DFB557F72F451F74839FB192D33D011D0EA1603"
+    },
+    {
+      "file": "wall_base.skp",
+      "source_definition": "Clear wall",
+      "bytes": 76032,
+      "sha256": "F688AFDBA972E21728988FACC9CA0517610C50F076AF79425C23574B34775809"
+    }
+  ]
+}

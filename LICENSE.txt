@@ -1,0 +1,15 @@
+Copyright (c) 2026 Status Check. All rights reserved.
+
+Permission is granted to install and use this beta extension at no charge.
+Redistribution, modification, or resale is not granted without written permission.
+
+Bundled stage-building component files are covered by their separate distribution
+permissions described in Docs/Third-Party-Notices.md. Nothing in this license
+reduces permissions separately granted for those files.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,0 +1,84 @@
+{
+  "stageName": "Stage Bridge Synthetic Fixture",
+  "stageAuthor": "Status Check",
+  "stageLastUpdate": "2026-07-18",
+  "fileVersion": "1.0.142",
+  "stageBrief": "Synthetic fixture for round-trip validation.",
+  "procedure": "Engage targets as visible.",
+  "courseType": "Long Course",
+  "scoringType": "Comstock",
+  "numPaper": 1,
+  "numSteel": 1,
+  "numNoshoots": 0,
+  "numPerPaper": 2,
+  "numRounds": 3,
+  "numPoints": 15,
+  "stageShape": {
+    "presetName": "Test Bay",
+    "width": 6.096,
+    "height": 6.096,
+    "customFixtureField": "preserve-me"
+  },
+  "customTopLevelField": {
+    "mustSurvive": true
+  },
+  "propList": [
+    {
+      "propName": "uspsa-full-target",
+      "uniqueID": 1,
+      "activateIDs": [],
+      "customText": "T1",
+      "customPropField": "target-preserve-me",
+      "width": 1,
+      "height": 1,
+      "depth": 1,
+      "propTransform": {
+        "Rotation": { "X": 0.0, "Y": 0.0, "Z": 0.0, "W": 1.0 },
+        "Translation": { "X": -100.0, "Y": -200.0, "Z": 0.1 },
+        "Scale3D": { "X": 1.0, "Y": 1.0, "Z": 1.0 }
+      }
+    },
+    {
+      "propName": "wall-targetsusa-4ft-frame",
+      "uniqueID": 2,
+      "activateIDs": [],
+      "customText": "",
+      "width": 1,
+      "height": 1,
+      "depth": 1,
+      "propTransform": {
+        "Rotation": { "X": 0.0, "Y": 0.0, "Z": 0.7071067811865475, "W": 0.7071067811865476 },
+        "Translation": { "X": 100.0, "Y": -50.0, "Z": 0.1 },
+        "Scale3D": { "X": 1.0, "Y": 1.0, "Z": 1.0 }
+      }
+    },
+    {
+      "propName": "uspsa-popper",
+      "uniqueID": 3,
+      "activateIDs": [],
+      "customText": "P1",
+      "width": 1,
+      "height": 1,
+      "depth": 1,
+      "propTransform": {
+        "Rotation": { "X": 0.0, "Y": 0.0, "Z": 0.3826834323650898, "W": 0.9238795325112867 },
+        "Translation": { "X": 0.0, "Y": 150.0, "Z": 0.1 },
+        "Scale3D": { "X": 1.0, "Y": 1.0, "Z": 1.0 }
+      }
+    },
+    {
+      "propName": "mystery-prop-fixture",
+      "uniqueID": 4,
+      "activateIDs": [3],
+      "customText": "Unsupported stays visible",
+      "width": 2,
+      "height": 3,
+      "depth": 4,
+      "propTransform": {
+        "Rotation": { "X": 0.0, "Y": 0.0, "Z": 0.0, "W": 1.0 },
+        "Translation": { "X": 30.0, "Y": 40.0, "Z": 0.1 },
+        "Scale3D": { "X": 1.0, "Y": 1.0, "Z": 1.0 }
+      }
+    }
+  ]
+}
