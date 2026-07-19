@@ -67,6 +67,17 @@ module StatusCheckGG
           values = entry[:asset_scale] || [1.0, 1.0, 1.0]
           scaling = Geom::Transformation.scaling(values[0].to_f, values[1].to_f, values[2].to_f)
           instance = wrapper.entities.add_instance(source, scaling * normalize)
+          recolor = entry[:asset_recolor]
+          if recolor.is_a?(Hash)
+            instance.make_unique if instance.respond_to?(:make_unique)
+            replacement = material_for(
+              model,
+              "Stage Bridge #{entry[:key]} Recolor",
+              recolor[:to],
+              1.0
+            )
+            recolor_definition(instance.definition, recolor[:from], replacement, {})
+          end
           if entry[:asset_colorize]
             instance.material = material_for(model, "Stage Bridge #{entry[:key]}", entry[:color], 1.0)
           end
@@ -74,6 +85,31 @@ module StatusCheckGG
         rescue Exception => error
           puts "Stage Bridge asset load failed for #{asset_path}: #{error.class}: #{error.message}"
           false
+        end
+
+        def self.recolor_definition(definition, source_color, replacement, seen)
+          return if definition.nil? || seen[definition.object_id]
+          seen[definition.object_id] = true
+          definition.entities.each do |entity|
+            if entity.respond_to?(:material) && material_matches?(entity.material, source_color)
+              entity.material = replacement
+            end
+            if entity.respond_to?(:back_material) && material_matches?(entity.back_material, source_color)
+              entity.back_material = replacement
+            end
+            if entity.respond_to?(:definition)
+              entity.make_unique if entity.respond_to?(:make_unique)
+              recolor_definition(entity.definition, source_color, replacement, seen)
+            end
+          end
+        end
+
+        def self.material_matches?(material, source_color)
+          return false if material.nil? || !source_color.is_a?(Array) || source_color.length < 3
+          color = material.color
+          color.red == source_color[0].to_i &&
+            color.green == source_color[1].to_i &&
+            color.blue == source_color[2].to_i
         end
 
         def self.build_stage_reference(root_entities, root_hash, model)

@@ -102,6 +102,7 @@ module StatusCheckGG
             :key => 'uspsa_popper', :display => 'USPSA Popper', :prop_name => 'uspsa-popper',
             :aliases => ['uspsa-popper', 'uspsa-full-popper', 'ipsc-popper', 'ipsc-full-popper'],
             :builder => :popper, :dimensions => [12.0, 1.0, 42.0], :color => [170, 175, 180],
+            :asset => 'uspsa_popper.skp',
             :paper => 0, :steel => 1, :no_shoot => 0
           },
           {
@@ -142,12 +143,15 @@ module StatusCheckGG
           {
             :key => 'two_stack_hc', :display => 'Two-Stack Paper / Hard Cover', :prop_name => 'uspsa-two-stack-hc',
             :aliases => ['uspsa-two-stack-hc'], :builder => :stacked_target, :dimensions => [18.125, 1.0, 60.0],
-            :color => [181, 133, 87], :paper => 2, :steel => 0, :no_shoot => 0
+            :color => [181, 133, 87], :asset => 'uspsa_two_stack_noshoot.skp',
+            :asset_recolor => { :from => [255, 255, 255], :to => [0, 0, 0] },
+            :paper => 2, :steel => 0, :no_shoot => 0
           },
           {
             :key => 'two_stack_no_shoot', :display => 'Two-Stack Paper / No-Shoot', :prop_name => 'uspsa-two-stack-noshoot',
             :aliases => ['uspsa-two-stack-noshoot', 'uspsa-two-noshoot-vert'], :builder => :stacked_target,
             :dimensions => [18.125, 1.0, 60.0], :color => [225, 220, 205],
+            :asset => 'uspsa_two_stack_noshoot.skp',
             :paper => 2, :steel => 0, :no_shoot => 1
           }
         ]

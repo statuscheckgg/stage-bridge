@@ -31,6 +31,12 @@
       "sha256": "76EEC183BADD81C8AA8F6261E50C983B69C7B1AF0B6380DD6A352862A65ABA9A"
     },
     {
+      "file": "uspsa_popper.skp",
+      "source_definition": "Group#180",
+      "bytes": 237938,
+      "sha256": "0C41161F12BB841FF7A2B4F1357DF52FBD63A4B11DA5718B35A7E3F390C27295"
+    },
+    {
       "file": "uspsa_target_high.skp",
       "source_definition": "Uspsa target and stand high#1",
       "bytes": 80546,
@@ -47,6 +53,12 @@
       "source_definition": "USPSA target and stand#8",
       "bytes": 80452,
       "sha256": "72BCF17E7C337D45C50D71347DFB557F72F451F74839FB192D33D011D0EA1603"
+    },
+    {
+      "file": "uspsa_two_stack_noshoot.skp",
+      "source_definition": "Group#275",
+      "bytes": 107463,
+      "sha256": "C91C088C3F344F269559E961F51BBC3A9C747EAABBE4F042FF956D3085976926"
     },
     {
       "file": "wall_base.skp",

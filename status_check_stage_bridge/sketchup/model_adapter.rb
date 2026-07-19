@@ -5,6 +5,8 @@ module StatusCheckGG
   module StageBridge
     module SketchupIntegration
       module ModelAdapter
+        TEMPLATE_PERSON_NAMES = ['sang', 'sophie', 'susan', 'steve', 'chris', 'bonnie']
+
         def self.import_file(path, model)
           document = Core::StageDocument.load(path)
           diagnostics = Core::Validator.validate_root(document.root)
@@ -22,6 +24,7 @@ module StatusCheckGG
           model.start_operation('Import Practisim Stage', true)
           begin
             existing.erase! unless existing.nil? || existing.deleted?
+            remove_template_people(model)
             root = model.entities.add_group
             root.name = "Stage Bridge - #{document.stage_name}"
             root.set_attribute(ENTITY_DICTIONARY, ROLE_KEY, ROLE_STAGE_ROOT)
@@ -43,6 +46,16 @@ module StatusCheckGG
           rescue Exception
             model.abort_operation
             raise
+          end
+        end
+
+        def self.remove_template_people(model)
+          model.entities.to_a.each do |entity|
+            next unless entity.is_a?(Sketchup::ComponentInstance)
+            values = [entity.name, entity.definition.name, entity.definition.description]
+            normalized = values.map { |value| value.to_s.strip.downcase }
+            next unless normalized.any? { |value| TEMPLATE_PERSON_NAMES.include?(value) }
+            entity.erase!
           end
         end
 

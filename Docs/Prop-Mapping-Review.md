@@ -22,11 +22,11 @@ The packaged component controls only the SketchUp appearance. The original STG p
 | `uspsa-full-short-tilted` | `uspsa_target_short_tilted` | `uspsa_target_short_tilted.skp` | `USPSA target and stand#8` | Selected asset |
 | `uspsa-full-target` | `uspsa_target` | `uspsa_target_high.skp` | `Uspsa target and stand high#1` | Selected asset |
 | `uspsa-noshoot-onstand` | `uspsa_no_shoot` | `uspsa_no_shoot_high.skp` | `USPSA No shoot High` | Selected asset |
-| `uspsa-popper` | `uspsa_popper` | Local popper | — | Procedural; candidate asset review needed |
+| `uspsa-popper` | `uspsa_popper` | `uspsa_popper.skp` | `Group#180` | Approved leftmost full-size popper |
 | `uspsa-swinger` | `uspsa_swinger` | Local swinger frame and paper target | — | Procedural; candidate asset review needed |
-| `uspsa-two-noshoot-vert` | `two_stack_no_shoot` | Local stacked target assembly | — | Procedural; candidate asset review needed |
-| `uspsa-two-stack-hc` | `two_stack_hc` | Local stacked target assembly | — | Procedural; candidate asset review needed |
-| `uspsa-two-stack-noshoot` | `two_stack_no_shoot` | Local stacked target assembly | — | Procedural; candidate asset review needed |
+| `uspsa-two-noshoot-vert` | `two_stack_no_shoot` | `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved white-center vertical stack |
+| `uspsa-two-stack-hc` | `two_stack_hc` | Derived black-center copy of `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved beta derivation |
+| `uspsa-two-stack-noshoot` | `two_stack_no_shoot` | `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved white-center vertical stack |
 | `wall-targetsusa-4ft-frame` | `wall_4ft` | `wall_plain_4ft.skp` | `Group#286` | Approved plain wall with both supports |
 | `wall-targetsusa-8ft-frame` | `wall_8ft` | `wall_plain_8ft.skp` | `Group#336` | Approved plain wall with both supports |
 
@@ -97,6 +97,8 @@ For an 8 x 6 ft wall, the review should compare:
 | `uspsa_target_short.skp` | `USPSA target and stand#10` | `uspsa-full-target-short` |
 | `uspsa_target_short_tilted.skp` | `USPSA target and stand#8` | `uspsa-full-short-tilted` |
 | `uspsa_no_shoot_high.skp` | `USPSA No shoot High` | `uspsa-noshoot`, `uspsa-noshoot-onstand` |
+| `uspsa_popper.skp` | `Group#180` | `uspsa-popper` and full-popper aliases |
+| `uspsa_two_stack_noshoot.skp` | `Group#275` | white-center and derived black-center vertical stacks |
 
 The Big Prop collection contains many similarly named target definitions with different heights, hard-cover/no-shoot arrangements, and nearby target combinations. These should not all alias to a single asset without reviewing the corresponding STG prop semantics.
 
@@ -109,4 +111,4 @@ The Big Prop collection contains many similarly named target definitions with di
 5. Extract only the approved definitions into the RBZ and record their source names and hashes in `components/manifest.json`.
 6. Re-run Garage, CrabLegs, and Bay 7 visual and round-trip tests.
 
-No asset selections in this document should be changed in code until the corresponding review choice is approved.
+Future asset selections should be changed in code only after the corresponding review choice is approved.

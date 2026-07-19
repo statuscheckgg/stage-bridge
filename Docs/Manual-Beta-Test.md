@@ -2,19 +2,19 @@
 
 Use a copy of a familiar Practisim stage containing several walls, targets, fault lines, and barrels. Keep the original `.STG` unchanged.
 
-## 1. Install Beta 4
+## 1. Install Beta 5
 
 1. Close SketchUp.
 2. Open SketchUp Make 2017.
 3. Select `Window > Extension Manager`.
 4. Select `Install Extension`.
-5. Choose `stage-bridge-0.1.0-beta.4.rbz`.
+5. Choose `stage-bridge-0.1.0-beta.5.rbz`.
 6. Restart SketchUp if requested.
 7. Confirm that `Extensions > Stage Bridge` is present.
 
-This development package is unsigned. If SketchUp refuses to load it, temporarily select the `Unrestricted` extension-loading policy for this local test. Restore the stricter policy after testing. The public release will use a signed RBZ.
+This public preview is unsigned. Only approve it when it was downloaded from the official `statuscheckgg/stage-bridge` GitHub prerelease. If SketchUp refuses to load unsigned extensions, use `Window > Extension Manager > Settings` to select `Unrestricted` for this local test, then restore your preferred policy afterward.
 
-Do not reuse a SketchUp model imported with beta 1 or beta 2. Beta 3 models remain compatible with beta 4.
+Do not reuse a SketchUp model imported with beta 1 or beta 2. Re-import a familiar STG so the beta 5 prop mappings are visible.
 
 ## 2. Import a Known Stage
 
@@ -31,6 +31,10 @@ Before editing, confirm:
 - Walls are upright and rest on the ground.
 - Paper targets and no-shoots are upright unless the Practisim prop is intentionally tilted.
 - Barrels rest on the ground.
+- SketchUp's stock human figure disappears when the STG is imported.
+- `uspsa-popper` uses the full-size steel popper with the black stand behind it.
+- White-center vertical target stacks use the selected Big Prop no-shoot stack.
+- Hard-cover vertical target stacks use the same assembly with a black center.
 - Fault lines are normal stage lengths and do not cross the model indefinitely.
 - Adjustable fault lines begin at the same Practisim endpoint and retain their custom color.
 - A double-X start position appears as two X marks, not a magenta box.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-beta.5 - 2026-07-18
+
+- Removed SketchUp's stock template person whenever an STG stage is imported.
+- Mapped `uspsa-popper` to the selected leftmost full-size Big Prop popper assembly `Group#180`.
+- Mapped white-center vertical stacked targets to Big Prop assembly `Group#275`.
+- Derived the `uspsa-two-stack-hc` visual from the same stack with a private white-to-black center recolor.
+- Added SketchUp 2017 regressions for person removal, packaged asset dimensions, and white/black stack isolation.
+- Added an illustrated, plain-language installation and manual-test guide for GitHub testers.
+
 ## 0.1.0-beta.4 - 2026-07-18
 
 - Remembered the most recently successful STG import folder across SketchUp restarts.

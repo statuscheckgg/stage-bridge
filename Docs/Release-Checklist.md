@@ -9,9 +9,9 @@
 - [ ] Build with `Tools\Build-Rbz.ps1`.
 - [ ] Run `Tools\Test-RbzStructure.ps1` against the built RBZ.
 - [ ] Record the unsigned RBZ SHA-256 in the verification note.
-- [ ] Commit the source freeze and tag it `v0.1.0-beta.4`.
+- [ ] Commit the source freeze and tag it `v0.1.0-beta.5`.
 
-## Signing
+## Future Signed Package
 
 - [ ] Upload the unsigned RBZ to SketchUp's Extension Signature Portal.
 - [ ] Download the portal-produced signed RBZ without unpacking or rebuilding it.
@@ -20,12 +20,12 @@
 - [ ] Complete the import-and-edit portions of `Docs\Manual-Beta-Test.md` against a familiar external stage from the clean profile.
 - [ ] Record the signed RBZ SHA-256 separately from the unsigned package hash.
 
-## GitHub Draft Release
+## GitHub Prerelease
 
-- [ ] Create a draft release for tag `v0.1.0-beta.4`.
-- [ ] Use `Docs\Release-0.1.0-beta.4.md` as the release body.
+- [ ] Create a prerelease for tag `v0.1.0-beta.5`.
+- [ ] Use `Docs\Release-0.1.0-beta.5.md` as the release body.
 - [ ] Mark the release as a prerelease.
-- [ ] Attach only the signed RBZ and its SHA-256 file as public release assets.
+- [ ] Attach the unsigned RBZ and its SHA-256 file, and label the prerelease and installation warning clearly.
 - [ ] Do not attach the SketchUp installer, real Practisim stages, temporary review models, or the full source prop collection.
 - [ ] Confirm the repository issue template is enabled.
-- [ ] Publish only after one final signed-package install test.
+- [ ] Publish only after the real SketchUp 2017 smoke run and RBZ structure test pass.

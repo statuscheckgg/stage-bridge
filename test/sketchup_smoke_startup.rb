@@ -20,6 +20,24 @@ def angular_difference_degrees(a, b)
   difference * 180.0 / Math::PI
 end
 
+def definition_contains_color?(definition, red, green, blue, seen)
+  return false if definition.nil? || seen[definition.object_id]
+  seen[definition.object_id] = true
+  definition.entities.each do |entity|
+    materials = []
+    materials << entity.material if entity.respond_to?(:material)
+    materials << entity.back_material if entity.respond_to?(:back_material)
+    materials.compact.each do |material|
+      color = material.color
+      return true if color.red == red && color.green == green && color.blue == blue
+    end
+    if entity.respond_to?(:definition) && definition_contains_color?(entity.definition, red, green, blue, seen)
+      return true
+    end
+  end
+  false
+end
+
 def validate_stage_round_trip(path)
   model = Sketchup.active_model
   existing_root = StatusCheckGG::StageBridge::SketchupIntegration::ModelAdapter.stage_root(model)
@@ -111,8 +129,11 @@ UI.start_timer(1.0, false) do
 
     fixture = File.join(repo_root, 'test', 'fixtures', 'synthetic-stage.STG')
     model = Sketchup.active_model
+    mock_person_definition = model.definitions['Sang'] || model.definitions.add('Sang')
+    mock_person = model.entities.add_instance(mock_person_definition, Geom::Transformation.new)
     imported = StatusCheckGG::StageBridge::SketchupIntegration::ModelAdapter.import_file(fixture, model)
     raise 'SketchUp import returned false' unless imported
+    raise 'SketchUp template human was not removed during STG import' unless mock_person.deleted?
 
     export_root, diagnostics, _instances = StatusCheckGG::StageBridge::SketchupIntegration::ModelAdapter.build_export_root(model, false)
     blocking = StatusCheckGG::StageBridge::Core::Validator.blocking?(diagnostics)
@@ -239,7 +260,10 @@ UI.start_timer(1.0, false) do
       ['uspsa_target_short', [20.0, 18.0, 43.6932602888]],
       ['barrel', [22.9685039370, 22.9685039370, 37.7086614173]],
       ['barrel_stack', [22.9685039370, 22.9685039370, 75.4586614173]],
-      ['start_position', [24.0, 24.0, 0.25]]
+      ['start_position', [24.0, 24.0, 0.25]],
+      ['uspsa_popper', [12.0, 50.066, 45.3908250742]],
+      ['two_stack_no_shoot', [20.0, 18.0, 59.5996195242]],
+      ['two_stack_hc', [20.0, 18.0, 59.5996195242]]
     ]
     asset_expectations.each do |catalog_key, expected_dimensions|
       entry = StatusCheckGG::StageBridge::Core::Catalog.by_key(catalog_key)
@@ -269,6 +293,26 @@ UI.start_timer(1.0, false) do
           raise 'Plain 8-foot wall did not receive its green instance material'
         end
       end
+    end
+
+    no_shoot_stack_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
+      model,
+      StatusCheckGG::StageBridge::Core::Catalog.by_key('two_stack_no_shoot'),
+      'uspsa-two-stack-noshoot'
+    )
+    unless definition_contains_color?(no_shoot_stack_definition, 255, 255, 255, {})
+      raise 'No-shoot stack lost its white center target'
+    end
+    hard_cover_stack_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
+      model,
+      StatusCheckGG::StageBridge::Core::Catalog.by_key('two_stack_hc'),
+      'uspsa-two-stack-hc'
+    )
+    unless definition_contains_color?(hard_cover_stack_definition, 0, 0, 0, {})
+      raise 'Hard-cover stack did not receive a black center target'
+    end
+    if definition_contains_color?(hard_cover_stack_definition, 255, 255, 255, {})
+      raise 'Hard-cover stack retained the white center target'
     end
 
     model.save(model_path)

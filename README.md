@@ -18,11 +18,13 @@ SketchUp Make 2017 is unsupported by Trimble. The SketchUp installer is not incl
 
 ## Install
 
-1. Build or download the signed `stage-bridge-<version>.rbz` package.
+1. Download `stage-bridge-0.1.0-beta.5.rbz` from the latest GitHub prerelease.
 2. Open SketchUp Make 2017.
 3. Open `Window > Extension Manager`.
 4. Choose `Install Extension` and select the `.rbz` file.
 5. Restart SketchUp if prompted.
+
+See the illustrated [Install and Test Guide](Docs/Install-And-Test.md) for the complete layman workflow.
 
 ## Workflow
 
@@ -38,7 +40,7 @@ Untagged geometry is never guessed. Export and validation code remains under dev
 
 Models imported with `0.1.0-beta.1` or `0.1.0-beta.2` must be re-imported from their original `.STG` file after upgrading. Beta 3 corrects adjustable fault-line endpoint placement and custom colors, maps the double-X start marker, and supplies a tagged swinger assembly. Exporting an older imported model is intentionally blocked.
 
-For a complete hands-on beta pass, follow `Docs/Manual-Beta-Test.md`.
+For a complete hands-on beta pass, follow [Manual Beta Test](Docs/Manual-Beta-Test.md).
 
 ## Development
 
@@ -55,6 +57,6 @@ Real stages remain outside the repository. The checked-in fixture is synthetic a
 
 ## Release
 
-The first release lane is a free import-and-edit preview distributed outside Extension Warehouse. Upload the unsigned RBZ produced by `Build-Rbz.ps1` to SketchUp's Extension Signature Portal, download the signed result, and repeat the clean-profile installation test under the `Identified Extensions Only` loading policy.
+The first release lane is a free import-and-edit preview distributed outside Extension Warehouse. The current GitHub prerelease is unsigned and must only be installed when it was downloaded from this repository. A future signed package will be tested under SketchUp's `Identified Extensions Only` policy.
 
-GitHub Actions builds and validates an **unsigned** RBZ for every main-branch update and pull request. Public GitHub release assets must use the portal-produced signed RBZ. Follow `Docs/Release-Checklist.md` and use `Docs/Release-0.1.0-beta.4.md` as the beta 4 release body.
+GitHub Actions builds and validates an unsigned RBZ for every main-branch update and pull request. Follow [Release Checklist](Docs/Release-Checklist.md) and use [beta 5 release notes](Docs/Release-0.1.0-beta.5.md) for the current prerelease.

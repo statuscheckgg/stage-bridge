@@ -78,6 +78,22 @@ module StageBridgeCoreTests
       StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-swinger')[:key] == 'uspsa_swinger',
       'USPSA swinger must not use an unknown placeholder'
     )
+    popper = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-popper')
+    assert(popper[:asset] == 'uspsa_popper.skp', 'Full popper must use the selected Big Prop asset')
+    no_shoot_stack = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-two-stack-noshoot')
+    assert(
+      no_shoot_stack[:asset] == 'uspsa_two_stack_noshoot.skp',
+      'No-shoot stack must use the selected Big Prop asset'
+    )
+    hard_cover_stack = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-two-stack-hc')
+    assert(
+      hard_cover_stack[:asset] == 'uspsa_two_stack_noshoot.skp',
+      'Hard-cover stack must derive from the selected Big Prop stack'
+    )
+    assert(
+      hard_cover_stack[:asset_recolor] == { :from => [255, 255, 255], :to => [0, 0, 0] },
+      'Hard-cover stack must replace the white center with black'
+    )
 
     utf16 = StatusCheckGG::StageBridge::Core::EncodingHelper.encode(document.source_json, 'utf16le')
     decoded, encoding_name = StatusCheckGG::StageBridge::Core::EncodingHelper.decode(utf16)
@@ -143,7 +159,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 29 }
+    { 'status' => 'passed', 'tests' => 33 }
   end
 end
 

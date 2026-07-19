@@ -1,6 +1,6 @@
 module StatusCheckGG
   module StageBridge
-    VERSION = '0.1.0-beta.4'
+    VERSION = '0.1.0-beta.5'
     BRIDGE_SCHEMA_VERSION = 3
 
     VALIDATE_COMMAND_ENABLED = false

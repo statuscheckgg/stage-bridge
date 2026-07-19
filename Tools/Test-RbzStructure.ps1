@@ -21,9 +21,11 @@ try {
         'status_check_stage_bridge/components/barrel_stack.skp',
         'status_check_stage_bridge/components/start_position.skp',
         'status_check_stage_bridge/components/uspsa_no_shoot_high.skp',
+        'status_check_stage_bridge/components/uspsa_popper.skp',
         'status_check_stage_bridge/components/uspsa_target_high.skp',
         'status_check_stage_bridge/components/uspsa_target_short.skp',
         'status_check_stage_bridge/components/uspsa_target_short_tilted.skp',
+        'status_check_stage_bridge/components/uspsa_two_stack_noshoot.skp',
         'status_check_stage_bridge/components/wall_base.skp',
         'status_check_stage_bridge/components/wall_plain_4ft.skp',
         'status_check_stage_bridge/components/wall_plain_8ft.skp'
