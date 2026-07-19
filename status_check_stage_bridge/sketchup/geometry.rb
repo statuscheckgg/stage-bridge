@@ -66,7 +66,10 @@ module StatusCheckGG
           normalize = Geom::Transformation.translation([-center_x, -center_y, -box.min.z.to_f])
           values = entry[:asset_scale] || [1.0, 1.0, 1.0]
           scaling = Geom::Transformation.scaling(values[0].to_f, values[1].to_f, values[2].to_f)
-          wrapper.entities.add_instance(source, scaling * normalize)
+          instance = wrapper.entities.add_instance(source, scaling * normalize)
+          if entry[:asset_colorize]
+            instance.material = material_for(model, "Stage Bridge #{entry[:key]}", entry[:color], 1.0)
+          end
           true
         rescue Exception => error
           puts "Stage Bridge asset load failed for #{asset_path}: #{error.class}: #{error.message}"

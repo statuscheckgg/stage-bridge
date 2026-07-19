@@ -24,6 +24,9 @@ module StageBridgeCoreTests
   end
 
   def self.run(root)
+    assert(!StatusCheckGG::StageBridge::VALIDATE_COMMAND_ENABLED, 'Public preview must keep validation disabled')
+    assert(!StatusCheckGG::StageBridge::EXPORT_COMMAND_ENABLED, 'Public preview must keep STG export disabled')
+
     fixture = File.join(root, 'test', 'fixtures', 'synthetic-stage.STG')
     document = StatusCheckGG::StageBridge::Core::StageDocument.load(fixture)
     assert(document.props.length == 4, 'Expected four fixture props')
@@ -140,7 +143,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 27 }
+    { 'status' => 'passed', 'tests' => 29 }
   end
 end
 

@@ -1,5 +1,7 @@
 # Backup and Recovery
 
+The public import-and-edit MVP has STG validation and export disabled. The behavior below documents the in-development export implementation and does not describe an available preview command.
+
 - Export defaults to a new filename ending in `-SketchUp.STG`.
 - Stage Bridge never silently overwrites an existing file.
 - Confirmed overwrites first create `<file>.backup-YYYYMMDD-HHMMSS` beside the target.

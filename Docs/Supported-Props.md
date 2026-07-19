@@ -1,6 +1,6 @@
 # Supported Prop Catalog
 
-Beta 3 uses curated SketchUp 2017 component assets from the public stage-building prop collection for common targets, walls, barrels, and start markers. Props without a mapped asset use local procedural geometry. Both paths remain fully offline.
+Beta 4 uses curated SketchUp 2017 component assets from the public stage-building prop collection for common targets, walls, barrels, and start markers. Props without a mapped asset use local procedural geometry. Both paths remain fully offline.
 
 | Catalog item | Primary Practisim name | Notable aliases | Scoring contribution |
 |---|---|---|---|
@@ -28,3 +28,5 @@ Beta 3 uses curated SketchUp 2017 component assets from the public stage-buildin
 Unknown imported props remain tagged and movable through a magenta placeholder. They retain their original JSON but cannot be added from the catalog.
 
 Packaged component source and normalization notes are recorded in `status_check_stage_bridge/components/SOURCE.md`. The full collection model is not included in the RBZ.
+
+The 4 x 6 ft and 8 x 6 ft walls use the solid green, fully supported Big Prop assemblies `Group#286` and `Group#336`. Metric walls continue to use the earlier clear-frame asset pending separate mapping review.

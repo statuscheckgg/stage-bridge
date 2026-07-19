@@ -1,7 +1,11 @@
 module StatusCheckGG
   module StageBridge
-    VERSION = '0.1.0-beta.3'
+    VERSION = '0.1.0-beta.4'
     BRIDGE_SCHEMA_VERSION = 3
+
+    VALIDATE_COMMAND_ENABLED = false
+    EXPORT_COMMAND_ENABLED = false
+    PREVIEW_DISABLED_REASON = 'This command is disabled in the public import-and-edit preview while prop mapping and Practisim reopen testing are completed.'
 
     MODEL_DICTIONARY = 'status_check_stage_bridge_model'
     ENTITY_DICTIONARY = 'status_check_stage_bridge_entity'

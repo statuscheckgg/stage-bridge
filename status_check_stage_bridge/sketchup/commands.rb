@@ -12,8 +12,12 @@ module StatusCheckGG
           import_command = command('Import Practisim Stage') { import_stage }
           add_command = command('Add Practisim Prop') { add_prop }
           metadata_command = command('Stage Metadata') { ModelAdapter.edit_metadata(Sketchup.active_model) }
-          validate_command = command('Validate Stage') { ModelAdapter.validate_model(Sketchup.active_model) }
-          export_command = command('Export Practisim Stage') { ModelAdapter.export_model(Sketchup.active_model) }
+          validate_command = gated_command('Validate Stage', VALIDATE_COMMAND_ENABLED) do
+            ModelAdapter.validate_model(Sketchup.active_model)
+          end
+          export_command = gated_command('Export Practisim Stage', EXPORT_COMMAND_ENABLED) do
+            ModelAdapter.export_model(Sketchup.active_model)
+          end
 
           [import_command, add_command, metadata_command, validate_command, export_command].each do |item|
             submenu.add_item(item)
@@ -35,8 +39,25 @@ module StatusCheckGG
           item
         end
 
+        def self.gated_command(name, enabled, &block)
+          item = command(name) do
+            if enabled
+              block.call
+            else
+              UI.messagebox(PREVIEW_DISABLED_REASON)
+            end
+          end
+          unless enabled
+            item.tooltip = "#{name} - unavailable in import preview"
+            item.status_bar_text = PREVIEW_DISABLED_REASON
+            item.set_validation_proc { MF_GRAYED }
+          end
+          item
+        end
+
         def self.import_stage
-          path = UI.openpanel('Import Practisim Stage', nil, 'Practisim Stage|*.STG||')
+          folder = PathPreferences.last_stage_folder
+          path = UI.openpanel('Import Practisim Stage', folder, 'Practisim Stage|*.STG||')
           return if path.nil?
           ModelAdapter.import_file(path, Sketchup.active_model)
         rescue Exception => error

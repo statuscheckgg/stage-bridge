@@ -86,6 +86,7 @@ def validate_stage_round_trip(path)
 end
 
 UI.start_timer(1.0, false) do
+  previous_stage_folder = ''
   begin
     load File.join(repo_root, 'test', 'core_test_runner.rb')
     core_result = StageBridgeCoreTests.run(repo_root)
@@ -93,6 +94,19 @@ UI.start_timer(1.0, false) do
     load File.join(repo_root, 'status_check_stage_bridge', 'main.rb')
     unless StatusCheckGG::StageBridge::EXTENSION.version == StatusCheckGG::StageBridge::VERSION
       raise "Extension metadata version #{StatusCheckGG::StageBridge::EXTENSION.version} did not match #{StatusCheckGG::StageBridge::VERSION}"
+    end
+
+    previous_stage_folder = Sketchup.read_default(
+      StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences::SECTION,
+      StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences::LAST_STAGE_FOLDER_KEY,
+      ''
+    ).to_s
+    preference_test_path = File.join(result_dir, 'preference-test.STG')
+    remembered = StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences.remember_path(preference_test_path)
+    raise 'Last-stage folder preference was not written' unless remembered
+    remembered_folder = StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences.last_stage_folder
+    unless File.expand_path(remembered_folder) == File.expand_path(result_dir)
+      raise "Last-stage folder preference returned #{remembered_folder}, expected #{result_dir}"
     end
 
     fixture = File.join(repo_root, 'test', 'fixtures', 'synthetic-stage.STG')
@@ -219,8 +233,8 @@ UI.start_timer(1.0, false) do
     grounded_instance.erase!
 
     asset_expectations = [
-      ['wall_4ft', [48.0, 4.2435434459, 72.0]],
-      ['wall_8ft', [96.0, 4.2435434459, 72.0]],
+      ['wall_4ft', [50.4894164518, 18.0147389999, 77.1669789932]],
+      ['wall_8ft', [98.4894164518, 18.0147389999, 77.1669789932]],
       ['uspsa_target', [20.0, 18.0, 66.5264628608]],
       ['uspsa_target_short', [20.0, 18.0, 43.6932602888]],
       ['barrel', [22.9685039370, 22.9685039370, 37.7086614173]],
@@ -249,6 +263,12 @@ UI.start_timer(1.0, false) do
       raise "#{catalog_key} asset X origin was not centered: #{center_x}" if center_x.abs > 0.001
       raise "#{catalog_key} asset Y origin was not centered: #{center_y}" if center_y.abs > 0.001
       raise "#{catalog_key} asset base was not grounded: #{bounds.min.z.to_f}" if bounds.min.z.to_f.abs > 0.001
+      if catalog_key == 'wall_8ft'
+        wall_material = nested_assets.first.material
+        if wall_material.nil? || wall_material.color.green < wall_material.color.red
+          raise 'Plain 8-foot wall did not receive its green instance material'
+        end
+      end
     end
 
     model.save(model_path)
@@ -276,6 +296,11 @@ UI.start_timer(1.0, false) do
       'backtrace' => error.backtrace
     })
   ensure
+    Sketchup.write_default(
+      StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences::SECTION,
+      StatusCheckGG::StageBridge::SketchupIntegration::PathPreferences::LAST_STAGE_FOLDER_KEY,
+      previous_stage_folder
+    )
     Sketchup.quit
   end
 end

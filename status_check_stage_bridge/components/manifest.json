@@ -53,6 +53,18 @@
       "source_definition": "Clear wall",
       "bytes": 76032,
       "sha256": "F688AFDBA972E21728988FACC9CA0517610C50F076AF79425C23574B34775809"
+    },
+    {
+      "file": "wall_plain_4ft.skp",
+      "source_definition": "Group#286",
+      "bytes": 51791,
+      "sha256": "9A42A2D09BB983A8AD7D894D54542E85BA0E2972EE31FEBCD7DF896A6A558674"
+    },
+    {
+      "file": "wall_plain_8ft.skp",
+      "source_definition": "Group#336",
+      "bytes": 52846,
+      "sha256": "902137C195FD9223A4C599D2C48FF30E6C14F35CDF8A94CD4443BBA35081B275"
     }
   ]
 }

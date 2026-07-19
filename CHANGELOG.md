@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-beta.4 - 2026-07-18
+
+- Remembered the most recently successful STG import folder across SketchUp restarts.
+- Reused that folder for the Stage Bridge import dialog; the same preference is ready for export when that feature is enabled.
+- Added safe fallback to the current stage source folder or the user's home folder when the remembered directory no longer exists.
+- Defined the public MVP as an import-and-edit preview.
+- Grayed out `Validate Stage` and `Export Practisim Stage` pending mapping refinement and reopen-in-Practisim acceptance testing.
+- Replaced the stretched clear-frame 4 x 6 ft and 8 x 6 ft wall visuals with the native-proportion plain supported wall assemblies `Group#286` and `Group#336` from Big Prop.
+
 ## 0.1.0-beta.3 - 2026-07-18
 
 - Corrected adjustable fault-line origins so Practisim translations identify the start endpoint instead of the center of the line.

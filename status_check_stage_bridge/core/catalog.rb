@@ -37,15 +37,15 @@ module StatusCheckGG
           {
             :key => 'wall_4ft', :display => 'Wall - 4 x 6 ft', :prop_name => 'wall-targetsusa-4ft-frame',
             :aliases => ['wall-targetsusa-4ft-frame', 'wall-targetsusa-4ft', 'wall-short-brown', 'wall-short-color'],
-            :builder => :wall, :dimensions => [48.0, 2.0, 72.0], :color => [218, 126, 48],
-            :asset => 'wall_base.skp', :asset_scale => [0.9230769231, 1.0, 0.75],
+            :builder => :wall, :dimensions => [48.0, 2.0, 72.0], :color => [104, 143, 72],
+            :asset => 'wall_plain_4ft.skp',
             :paper => 0, :steel => 0, :no_shoot => 0
           },
           {
             :key => 'wall_8ft', :display => 'Wall - 8 x 6 ft', :prop_name => 'wall-targetsusa-8ft-frame',
             :aliases => ['wall-targetsusa-8ft-frame', 'wall-targetsusa-8ft', 'wall-med-brown', 'wall-med-color'],
-            :builder => :wall, :dimensions => [96.0, 2.0, 72.0], :color => [218, 126, 48],
-            :asset => 'wall_base.skp', :asset_scale => [1.8461538462, 1.0, 0.75],
+            :builder => :wall, :dimensions => [96.0, 2.0, 72.0], :color => [104, 143, 72],
+            :asset => 'wall_plain_8ft.skp', :asset_colorize => true,
             :paper => 0, :steel => 0, :no_shoot => 0
           },
           {

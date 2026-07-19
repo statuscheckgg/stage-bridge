@@ -2,19 +2,19 @@
 
 Use a copy of a familiar Practisim stage containing several walls, targets, fault lines, and barrels. Keep the original `.STG` unchanged.
 
-## 1. Install Beta 3
+## 1. Install Beta 4
 
 1. Close SketchUp.
 2. Open SketchUp Make 2017.
 3. Select `Window > Extension Manager`.
 4. Select `Install Extension`.
-5. Choose `stage-bridge-0.1.0-beta.3.rbz`.
+5. Choose `stage-bridge-0.1.0-beta.4.rbz`.
 6. Restart SketchUp if requested.
 7. Confirm that `Extensions > Stage Bridge` is present.
 
 This development package is unsigned. If SketchUp refuses to load it, temporarily select the `Unrestricted` extension-loading policy for this local test. Restore the stricter policy after testing. The public release will use a signed RBZ.
 
-Do not reuse a SketchUp model imported with beta 1 or beta 2. Start with the original `.STG` file.
+Do not reuse a SketchUp model imported with beta 1 or beta 2. Beta 3 models remain compatible with beta 4.
 
 ## 2. Import a Known Stage
 
@@ -23,6 +23,8 @@ Do not reuse a SketchUp model imported with beta 1 or beta 2. Start with the ori
 3. Set the file type to `Practisim Stage (*.STG)`.
 4. Select the copied test stage.
 5. Wait for SketchUp to zoom to the imported stage.
+
+After a successful import, close and reopen SketchUp and use the Stage Bridge import command again. Its file dialog should begin in the same folder.
 
 Before editing, confirm:
 
@@ -58,46 +60,29 @@ Perform these edits using the normal SketchUp tools:
 
 Keep every prop upright. Do not mirror, pitch, roll, shear, explode, or edit the geometry inside a tagged component.
 
-## 5. Validate
+## 5. Confirm Preview Restrictions
 
-1. Select `Extensions > Stage Bridge > Validate Stage`.
-2. Read the complete result.
+Confirm these two commands are present but grayed out:
 
-Expected result:
+- `Validate Stage`
+- `Export Practisim Stage`
 
-- Normal supported edits pass validation.
-- Untagged SketchUp geometry produces a warning and is ignored.
-- Mirrored, sheared, pitched, rolled, or exploded tagged props block export.
+They are intentionally unavailable in the public import-and-edit preview. Do not work around the disabled commands or use this build to produce a match STG.
 
-If validation fails unexpectedly, capture a screenshot and the complete validation message before changing anything else.
+## 6. Review Prop Coordination
 
-## 6. Export to a New STG
+Compare the imported stage with the familiar Practisim layout and record:
 
-1. Select `Extensions > Stage Bridge > Export Practisim Stage`.
-2. Save as a new file such as `MyStage-SketchUp-Test.STG`.
-3. Do not overwrite the original stage during beta testing.
-4. If targets or steel were added, duplicated, or deleted, review the proposed paper, steel, no-shoot, round, and point totals.
+- Incorrect SketchUp component choice.
+- Missing or placeholder props.
+- Incorrect dimensions, origin, orientation, or ground placement.
+- Whether a better component exists in the public Big Prop collection.
 
-## 7. Check the Result in Practisim
+Use the exact STG `propName` when available. The current mapping audit is recorded in `Docs\Prop-Mapping-Review.md`.
 
-Open the exported file in Practisim and confirm:
+## 7. Save an Optional SKP Review Copy
 
-- The stage opens without an error.
-- Moved and rotated props match the SketchUp edit.
-- The scaled fault line has the expected length.
-- The duplicated barrel exists once at the new position.
-- The deleted prop is gone.
-- The newly added prop exists.
-- Targets and walls are not upside down or below the ground.
-- Briefings, stage shape, camera information, activation behavior, and custom properties still exist.
-- Paper, steel, no-shoot, round, and point totals are correct.
-
-## 8. Round-Trip Once More
-
-1. Start another new empty SketchUp model.
-2. Import the exported test `.STG`.
-3. Confirm that the edited layout matches what was exported.
-4. Run `Validate Stage` again.
+You may save the SketchUp model for visual review. The `.skp` file is not a replacement for the original STG and cannot be converted back by the public MVP.
 
 ## Report a Problem
 
@@ -107,8 +92,7 @@ Record:
 - Stage Bridge version.
 - Practisim version or file version if known.
 - Prop name that behaved incorrectly.
-- Whether the problem appeared during import, editing, validation, export, or Practisim reopening.
-- Complete validation message.
+- Whether the problem appeared during import or visual editing.
 - Before-and-after screenshots.
 
 Do not publish a private stage file unless you intentionally want to share it.

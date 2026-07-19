@@ -24,7 +24,9 @@ try {
         'status_check_stage_bridge/components/uspsa_target_high.skp',
         'status_check_stage_bridge/components/uspsa_target_short.skp',
         'status_check_stage_bridge/components/uspsa_target_short_tilted.skp',
-        'status_check_stage_bridge/components/wall_base.skp'
+        'status_check_stage_bridge/components/wall_base.skp',
+        'status_check_stage_bridge/components/wall_plain_4ft.skp',
+        'status_check_stage_bridge/components/wall_plain_8ft.skp'
     )
     $manifestPath = 'status_check_stage_bridge/components/manifest.json'
     if ($entries -notcontains $manifestPath) {

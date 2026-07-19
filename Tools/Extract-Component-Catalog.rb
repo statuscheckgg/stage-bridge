@@ -8,6 +8,8 @@ module StatusCheckGG
     # publicly distributable Big Prop File.skp stage-building collection.
     ASSETS = {
       'wall_base.skp' => 'Clear wall',
+      'wall_plain_4ft.skp' => 'Group#286',
+      'wall_plain_8ft.skp' => 'Group#336',
       'uspsa_target_high.skp' => 'Uspsa target and stand high#1',
       'uspsa_target_short.skp' => 'USPSA target and stand#10',
       'uspsa_target_short_tilted.skp' => 'USPSA target and stand#8',

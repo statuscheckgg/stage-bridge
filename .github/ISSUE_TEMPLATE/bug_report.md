@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a Stage Bridge import, edit, validation, or export problem
+about: Report a Stage Bridge import or visual editing problem
 title: "[Bug] "
 labels: bug
 ---
@@ -16,10 +16,8 @@ labels: bug
 
 Describe the operation and result.
 
-## Validation output
-
-Paste the complete `Validate Stage` message.
-
 ## Reproduction
 
 List the smallest reliable sequence. Do not attach private stage files unless you intend to share them.
+
+`Validate Stage` and `Export Practisim Stage` are intentionally disabled in the public MVP.

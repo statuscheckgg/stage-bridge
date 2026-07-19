@@ -38,6 +38,7 @@ module StatusCheckGG
 
             model.commit_operation
             model.active_view.zoom(root)
+            PathPreferences.remember_path(path)
             true
           rescue Exception
             model.abort_operation
@@ -158,7 +159,8 @@ module StatusCheckGG
           end
 
           source_path = model.get_attribute(MODEL_DICTIONARY, 'source_path', '')
-          folder = File.directory?(File.dirname(source_path.to_s)) ? File.dirname(source_path.to_s) : Dir.home
+          source_folder = File.directory?(File.dirname(source_path.to_s)) ? File.dirname(source_path.to_s) : nil
+          folder = PathPreferences.last_stage_folder(source_folder)
           base_name = File.basename(source_path.to_s, File.extname(source_path.to_s))
           base_name = 'stage' if base_name.empty?
           output_path = UI.savepanel('Export Practisim Stage', folder, "#{base_name}-SketchUp.STG")
@@ -174,6 +176,7 @@ module StatusCheckGG
           encoding_name = model.get_attribute(MODEL_DICTIONARY, 'source_encoding', Core::EncodingHelper::UTF8)
           result = Core::Writer.write(output_path, export_root, encoding_name, :overwrite => overwrite)
           rebase_after_export(model, export_root, instances, result, encoding_name)
+          PathPreferences.remember_path(output_path)
 
           message = "Exported #{export_root['propList'].length} props to:\n#{output_path}"
           message += "\n\nBackup:\n#{result[:backup_path]}" unless result[:backup_path].nil?
