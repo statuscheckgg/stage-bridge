@@ -5,6 +5,7 @@ Beta 6 uses curated SketchUp 2017 component assets from the public stage-buildin
 | Catalog item | Primary Practisim name | Notable aliases | Scoring contribution |
 |---|---|---|---|
 | Adjustable fault line | `faultline-adjustable` | — | None |
+| Fault line, 2 ft | `faultline-2ft` | — | None |
 | Fault line, 2 m | `faultline-2m` | — | None |
 | Fault line, 4/6/8/10 ft | `faultline-4ft` etc. | — | None |
 | Wall, 4 x 6 ft | `wall-targetsusa-4ft-frame` | `wall-targetsusa-4ft`, short brown/color | None |

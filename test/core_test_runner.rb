@@ -70,6 +70,10 @@ module StageBridgeCoreTests
       'Adjustable fault line must not reuse the fixed 8-foot definition'
     )
     assert(adjustable[:builder] == :adjustable_faultline, 'Adjustable fault line must use endpoint geometry')
+    two_foot_faultline = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('faultline-2ft')
+    assert(!two_foot_faultline.nil?, 'Two-foot fault line is missing from the catalog')
+    assert(two_foot_faultline[:key] == 'faultline_2ft', 'Two-foot fault line must not use an unknown placeholder')
+    assert_close(24.0, two_foot_faultline[:dimensions][0], 0.000001, 'Two-foot fault-line length')
     assert(
       StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('ssi-double-x-start-box')[:key] == 'double_x_start',
       'Double-X starting position must not use an unknown placeholder'
@@ -162,7 +166,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 35 }
+    { 'status' => 'passed', 'tests' => 38 }
   end
 end
 

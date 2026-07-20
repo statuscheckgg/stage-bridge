@@ -11,7 +11,7 @@ module StatusCheckGG
       'wall_plain_4ft.skp' => 'Group#286',
       'wall_plain_8ft.skp' => 'Group#336',
       'uspsa_target_high.skp' => 'Uspsa target and stand high#1',
-      'uspsa_target_short.skp' => 'USPSA target and stand#10',
+      'uspsa_target_short.skp' => 'USPSA target and stand#7',
       'uspsa_target_short_tilted.skp' => 'USPSA target and stand#8',
       'uspsa_no_shoot_high.skp' => 'USPSA No shoot High',
       'uspsa_popper.skp' => 'Group#180',

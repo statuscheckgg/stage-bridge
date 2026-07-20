@@ -10,79 +10,79 @@
       "file": "barrel.skp",
       "source_definition": "ske245",
       "bytes": 1124304,
-      "sha256": "C2287BAD3BC7A38DA2EBCA00B25F3C8564054F5AD2D7634DB6561645CF57D9FC"
+      "sha256": "B84CA70EBA853CB16AABE69CE7DFB222DD892035E2BDAD0434A47E0D8E89A393"
     },
     {
       "file": "barrel_stack.skp",
       "source_definition": "Stacked_Barrels",
       "bytes": 1120232,
-      "sha256": "662087FD26809840D8E233CC654268975BC49D56AB72083E4BD4CE7D7898E0D9"
+      "sha256": "72354DA9E792F3153359F44D41BB533A290FB6D96A0B65B9849D237B4B8AD13A"
     },
     {
       "file": "start_position.skp",
       "source_definition": "USPSA Shooting Box- 3X3",
       "bytes": 24423,
-      "sha256": "7D047A704CD447B7E908E4588F725226C422344357927091FFD769B8801686F8"
+      "sha256": "B3F595540625A89C1850DB57B1E4C997C122E8913BE7A286C47652913356034C"
     },
     {
       "file": "uspsa_no_shoot_high.skp",
       "source_definition": "USPSA No shoot High",
       "bytes": 67150,
-      "sha256": "76EEC183BADD81C8AA8F6261E50C983B69C7B1AF0B6380DD6A352862A65ABA9A"
+      "sha256": "43C4250A7C7FA0E658153DA35C13889C64CA0F9F53840155B7AE90FBB80DE163"
     },
     {
       "file": "uspsa_popper.skp",
       "source_definition": "Group#180",
       "bytes": 237938,
-      "sha256": "0C41161F12BB841FF7A2B4F1357DF52FBD63A4B11DA5718B35A7E3F390C27295"
+      "sha256": "751F293C3021A0C8527CEACAC590222B0BF96839DCCE00AF260BF584B9A05423"
     },
     {
       "file": "uspsa_swinger.skp",
       "source_definition": "Group#167",
       "bytes": 140377,
-      "sha256": "2ABC19E2C63B8F688B60675BB32EE77064B4D760D64AE10281828714D5892E18"
+      "sha256": "EFC15733477CC16D43B7709D6A50171A11FC6B29B3478BA14B41AFCF9D17B373"
     },
     {
       "file": "uspsa_target_high.skp",
       "source_definition": "Uspsa target and stand high#1",
       "bytes": 80546,
-      "sha256": "E2B0CA40C661A8ADED9C6A5B2D06C6F00941E2DC3623DF1153E49BDF34042D90"
+      "sha256": "784AECE0A62730B0A41901B32D56EBA65B903BCA804149A27869EE7E1001E2B8"
     },
     {
       "file": "uspsa_target_short.skp",
-      "source_definition": "USPSA target and stand#10",
-      "bytes": 85107,
-      "sha256": "15C6FCB615C57EE72B42661D22BE073151C52C13DB316753520BDB9412973F2A"
+      "source_definition": "USPSA target and stand#7",
+      "bytes": 84216,
+      "sha256": "6BB5B536DBB7779F7354BF82D93A1290E4E27DC34FDC4ED5616455D0E9239657"
     },
     {
       "file": "uspsa_target_short_tilted.skp",
       "source_definition": "USPSA target and stand#8",
       "bytes": 80452,
-      "sha256": "72BCF17E7C337D45C50D71347DFB557F72F451F74839FB192D33D011D0EA1603"
+      "sha256": "BD367CDB95B07B2AC1E9C1C2FB8CE0331624367B8CD93A48724B06997D665B0F"
     },
     {
       "file": "uspsa_two_stack_noshoot.skp",
       "source_definition": "Group#275",
       "bytes": 107463,
-      "sha256": "C91C088C3F344F269559E961F51BBC3A9C747EAABBE4F042FF956D3085976926"
+      "sha256": "E02F082EABE5CE6C76622519D67C9B1206B276144915DF27FDB7E211B489C814"
     },
     {
       "file": "wall_base.skp",
       "source_definition": "Clear wall",
       "bytes": 76032,
-      "sha256": "F688AFDBA972E21728988FACC9CA0517610C50F076AF79425C23574B34775809"
+      "sha256": "BBE697EEBED59EA4F5B495B679B5592D8B8D9B2F4DED61F808AE351D43851960"
     },
     {
       "file": "wall_plain_4ft.skp",
       "source_definition": "Group#286",
       "bytes": 51791,
-      "sha256": "9A42A2D09BB983A8AD7D894D54542E85BA0E2972EE31FEBCD7DF896A6A558674"
+      "sha256": "97F1DBDA1CE177B5C3CC07AD4E550AD85071ECB9145E11A4B616FC2B1EB866FC"
     },
     {
       "file": "wall_plain_8ft.skp",
       "source_definition": "Group#336",
-      "bytes": 52846,
-      "sha256": "902137C195FD9223A4C599D2C48FF30E6C14F35CDF8A94CD4443BBA35081B275"
+      "bytes": 49009,
+      "sha256": "FEF184EF303E0C1F47A682A3114CBBBD61F969F53DC850E0746A31312FC54356"
     }
   ]
 }

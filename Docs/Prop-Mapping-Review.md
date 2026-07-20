@@ -14,6 +14,7 @@ The packaged component controls only the SketchUp appearance. The original STG p
 |---|---|---|---|---|
 | `barrel-plastic` | `barrel` | `barrel.skp` | `ske245` | Selected asset |
 | `barrel-plastic-stack` | `barrel_stack` | `barrel_stack.skp` | `Stacked_Barrels` | Selected asset |
+| `faultline-2ft` | `faultline_2ft` | Local 24-inch fixed-length box | — | Procedural |
 | `faultline-4ft` | `faultline_4ft` | Local fixed-length box | — | Procedural |
 | `faultline-8ft` | `faultline_8ft` | Local fixed-length box | — | Procedural |
 | `faultline-adjustable` | `faultline_adjustable` | Local endpoint-based adjustable line | — | Procedural; custom color retained |
@@ -94,7 +95,7 @@ For an 8 x 6 ft wall, the review should compare:
 | Stage Bridge asset | Big Prop definition | Intended STG props |
 |---|---|---|
 | `uspsa_target_high.skp` | `Uspsa target and stand high#1` | `uspsa-full-target`, `uspsa-target` |
-| `uspsa_target_short.skp` | `USPSA target and stand#10` | `uspsa-full-target-short` |
+| `uspsa_target_short.skp` | `USPSA target and stand#7` | `uspsa-full-target-short` |
 | `uspsa_target_short_tilted.skp` | `USPSA target and stand#8` | `uspsa-full-short-tilted` |
 | `uspsa_no_shoot_high.skp` | `USPSA No shoot High` | `uspsa-noshoot`, `uspsa-noshoot-onstand` |
 | `uspsa_popper.skp` | `Group#180` | `uspsa-popper` and full-popper aliases |

@@ -5,7 +5,9 @@
 - Reversed the internal yaw of the selected full-size popper asset so its mechanism and fall direction match Practisim without changing the preserved STG transform.
 - Replaced the simplified procedural swinger with complete Big Prop assembly `Group#167`, including its stand, pivot arms, target, and counterweight.
 - Reconfirmed the white-center two-stack mapping on Big Prop `Group#275`, whose visible no-shoot band sits between the target bodies without covering the upper headbox.
-- Bumped the model component schema so re-imported stages cannot reuse stale beta 5 popper or swinger definitions.
+- Remapped `uspsa-full-target-short` to the low upright Big Prop assembly `USPSA target and stand#7` instead of the incorrectly oriented `#10` variant; verified at 20 x 18 x 43.693 inches in SketchUp.
+- Mapped Practisim `faultline-2ft` to a yellow 24 x 3.5 x 1.5-inch procedural fault line instead of the magenta unknown-prop placeholder.
+- Bumped the model component schema so re-imported stages cannot reuse stale beta 5 or earlier beta 6 component definitions.
 
 ## 0.1.0-beta.5 - 2026-07-18
 

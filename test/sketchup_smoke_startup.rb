@@ -108,8 +108,22 @@ UI.start_timer(1.0, false) do
   begin
     load File.join(repo_root, 'test', 'core_test_runner.rb')
     core_result = StageBridgeCoreTests.run(repo_root)
+    local_sources = [
+      'constants.rb',
+      File.join('core', 'encoding_helper.rb'),
+      File.join('core', 'transform.rb'),
+      File.join('core', 'catalog.rb'),
+      File.join('core', 'stage_document.rb'),
+      File.join('core', 'validator.rb'),
+      File.join('core', 'writer.rb'),
+      File.join('sketchup', 'geometry.rb'),
+      File.join('sketchup', 'path_preferences.rb'),
+      File.join('sketchup', 'model_adapter.rb')
+    ]
+    local_sources.each do |relative_path|
+      load File.join(repo_root, 'status_check_stage_bridge', relative_path)
+    end
     load File.join(repo_root, 'status_check_stage_bridge.rb')
-    load File.join(repo_root, 'status_check_stage_bridge', 'main.rb')
     unless StatusCheckGG::StageBridge::EXTENSION.version == StatusCheckGG::StageBridge::VERSION
       raise "Extension metadata version #{StatusCheckGG::StageBridge::EXTENSION.version} did not match #{StatusCheckGG::StageBridge::VERSION}"
     end
@@ -219,6 +233,22 @@ UI.start_timer(1.0, false) do
     end
     adjustable_instance.erase!
 
+    two_foot_entry = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('faultline-2ft')
+    two_foot_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
+      model, two_foot_entry, two_foot_entry[:prop_name]
+    )
+    two_foot_bounds = two_foot_definition.bounds
+    two_foot_dimensions = [
+      two_foot_bounds.max.x.to_f - two_foot_bounds.min.x.to_f,
+      two_foot_bounds.max.y.to_f - two_foot_bounds.min.y.to_f,
+      two_foot_bounds.max.z.to_f - two_foot_bounds.min.z.to_f
+    ]
+    [24.0, 3.5, 1.5].each_with_index do |expected, dimension_index|
+      if (two_foot_dimensions[dimension_index] - expected).abs > 0.001
+        raise "Two-foot fault line dimension #{dimension_index} was #{two_foot_dimensions[dimension_index]}, expected #{expected}"
+      end
+    end
+
     double_x_entry = StatusCheckGG::StageBridge::Core::Catalog.by_key('double_x_start')
     double_x_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(
       model, double_x_entry, double_x_entry[:prop_name]
@@ -300,6 +330,16 @@ UI.start_timer(1.0, false) do
           raise 'Full popper asset was not reversed to the Practisim fall direction'
         end
       end
+    end
+
+    component_manifest = JSON.parse(
+      File.read(File.join(repo_root, 'status_check_stage_bridge', 'components', 'manifest.json'))
+    )
+    short_target_asset = component_manifest['assets'].find do |asset|
+      asset['file'] == 'uspsa_target_short.skp'
+    end
+    if short_target_asset.nil? || short_target_asset['source_definition'] != 'USPSA target and stand#7'
+      raise 'Short USPSA target is not mapped to the low Big Prop definition #7'
     end
 
     no_shoot_stack_definition = StatusCheckGG::StageBridge::SketchupIntegration::Geometry.definition_for(

@@ -10,6 +10,11 @@ module StatusCheckGG
             :color => [235, 196, 35], :paper => 0, :steel => 0, :no_shoot => 0
           },
           {
+            :key => 'faultline_2ft', :display => 'Fault Line - 2 ft', :prop_name => 'faultline-2ft',
+            :aliases => ['faultline-2ft'], :builder => :box, :dimensions => [24.0, 3.5, 1.5],
+            :color => [235, 196, 35], :paper => 0, :steel => 0, :no_shoot => 0
+          },
+          {
             :key => 'faultline_2m', :display => 'Fault Line - 2 m', :prop_name => 'faultline-2m',
             :aliases => ['faultline-2m'], :builder => :box, :dimensions => [78.7401574803, 3.5, 1.5],
             :color => [235, 196, 35], :paper => 0, :steel => 0, :no_shoot => 0
