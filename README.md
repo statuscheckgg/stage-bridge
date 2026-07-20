@@ -1,68 +1,45 @@
 # Stage Bridge
 
-Stage Bridge is a local-only SketchUp Make 2017 extension for importing existing Practisim `.STG` stages as tagged, editable SketchUp components. Mapped targets, walls, barrels, and start markers use packaged SketchUp 2017 stage-building components; procedural geometry remains as an offline fallback.
+Import existing Practisim `.STG` stages into SketchUp Make 2017 and edit their props.
 
-The current public MVP is an **import-and-edit preview**. `Validate Stage` and `Export Practisim Stage` are visibly disabled while prop mapping and reopen-in-Practisim acceptance testing are completed. Do not use this preview as a production STG conversion tool.
+> **Beta preview:** Import and editing work. **Validate Stage** and **Export Practisim Stage** are disabled.
 
-Stage Bridge is an independent compatibility tool. It is not affiliated with or endorsed by Practisim, SketchUp, or Trimble.
-
-## Download the Current Beta
+## Download
 
 **[Download Stage Bridge 0.1.0-beta.7](https://github.com/statuscheckgg/stage-bridge/releases/tag/v0.1.0-beta.7)**
 
-This is an unsigned preview for SketchUp Make 2017 on Windows. `Validate Stage` and `Export Practisim Stage` remain disabled.
-
-## Compatibility
-
-- Windows x64
-- SketchUp Make 2017.2.2555
-- Ruby 2.2.4 embedded in SketchUp
-- Existing Practisim `.STG` files only
-- No network, account, telemetry, or update service
-
-SketchUp Make 2017 is unsupported by Trimble. The SketchUp installer is not included or redistributed by this project.
+For Windows with SketchUp Make 2017.2.2555. This beta is unsigned.
 
 ## Install
 
-1. Download `stage-bridge-0.1.0-beta.7.rbz` from the latest GitHub prerelease.
-2. Open SketchUp Make 2017.
-3. Open `Window > Extension Manager`.
-4. Choose `Install Extension` and select the `.rbz` file.
-5. Restart SketchUp if prompted.
+1. Download the `.rbz` from the release above.
+2. In SketchUp, open **Window > Extension Manager > Install Extension**.
+3. Select the RBZ and restart SketchUp if asked.
 
-See the illustrated [Install and Test Guide](Docs/Install-And-Test.md) for the complete layman workflow.
+[Illustrated installation guide](Docs/Install-And-Test.md)
 
-## Workflow
+## Use
 
-1. Choose `File > Import` and select `Practisim Stage (*.STG)`, or use `Extensions > Stage Bridge > Import Practisim Stage`.
-2. Double-click the `Stage Bridge - <stage name>` group to edit tagged props.
-3. Use normal SketchUp Move, Rotate, Scale, Copy, and Delete operations on tagged components.
-4. Use `Extensions > Stage Bridge > Add Practisim Prop` for supported new props.
-5. Review the imported appearance and report incorrect prop mappings through GitHub Issues.
+1. Start a new SketchUp model.
+2. Select **File > Import** and choose **Practisim Stage (*.STG)**.
+3. Double-click the Stage Bridge group, then move, rotate, copy, scale, or delete its tagged props.
 
-Stage Bridge remembers the folder from the most recent successful STG import and opens the next Stage Bridge import dialog there. The preference persists across SketchUp restarts and safely falls back when that directory is unavailable.
+Use **Extensions > Stage Bridge > Add Practisim Prop** to add a supported prop.
 
-Untagged geometry is never guessed. Export and validation code remains under development but is not exposed by the public MVP.
+Keep your original STG unchanged. Saving creates a SketchUp file only; this beta cannot export an STG.
 
-Re-import the original `.STG` into a new SketchUp model after upgrading. Beta 6 uses a new component schema so the reversed popper mechanism and complete Big Prop swinger replace cached definitions from earlier betas. Exporting an older imported model is intentionally blocked.
+## Notes
 
-For a complete hands-on beta pass, follow [Manual Beta Test](Docs/Manual-Beta-Test.md).
+- Common targets, walls, barrels, fault lines, and start markers are mapped.
+- Magenta boxes identify unsupported props.
+- Stage Bridge works locally without accounts, telemetry, or cloud services.
+- SketchUp Web, current SketchUp versions, macOS, and iPad are not supported.
 
-## Development
+## Help
 
-```powershell
-.\Tools\Record-SketchUp2017Environment.ps1
-.\Tools\Run-SketchUp2017Smoke.ps1
-$rbz = .\Tools\Build-Rbz.ps1
-.\Tools\Test-RbzStructure.ps1 -RbzPath $rbz
-```
+- [Manual beta test](Docs/Manual-Beta-Test.md)
+- [Supported props](Docs/Supported-Props.md)
+- [Report a mapping problem](https://github.com/statuscheckgg/stage-bridge/issues)
+- [Beta 7 release notes](Docs/Release-0.1.0-beta.7.md)
 
-SketchUp Make always displays its legacy Welcome window on this build. When the smoke runner opens it, click `Start using SketchUp`; the Ruby harness then runs and closes SketchUp automatically. Close any other SketchUp windows before starting the test.
-
-Real stages remain outside the repository. The checked-in fixture is synthetic and contains no Practisim geometry assets.
-
-## Release
-
-The first release lane is a free import-and-edit preview distributed outside Extension Warehouse. The current GitHub prerelease is unsigned and must only be installed when it was downloaded from this repository. A future signed package will be tested under SketchUp's `Identified Extensions Only` policy.
-
-GitHub Actions builds and validates an unsigned RBZ for every main-branch update and pull request. Follow [Release Checklist](Docs/Release-Checklist.md) and use [beta 7 release notes](Docs/Release-0.1.0-beta.7.md) for the current prerelease.
+Stage Bridge is independent and is not affiliated with or endorsed by Practisim, SketchUp, or Trimble. SketchUp Make 2017 is unsupported by Trimble.
