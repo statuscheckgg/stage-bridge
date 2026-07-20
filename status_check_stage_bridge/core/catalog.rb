@@ -96,13 +96,14 @@ module StatusCheckGG
             :key => 'uspsa_swinger', :display => 'USPSA Paper Swinger', :prop_name => 'uspsa-swinger',
             :aliases => ['uspsa-swinger', 'uspsa-swinger-right'], :builder => :swinger,
             :dimensions => [18.125, 18.0, 30.0], :color => [181, 133, 87],
+            :asset => 'uspsa_swinger.skp',
             :paper => 1, :steel => 0, :no_shoot => 0
           },
           {
             :key => 'uspsa_popper', :display => 'USPSA Popper', :prop_name => 'uspsa-popper',
             :aliases => ['uspsa-popper', 'uspsa-full-popper', 'ipsc-popper', 'ipsc-full-popper'],
             :builder => :popper, :dimensions => [12.0, 1.0, 42.0], :color => [170, 175, 180],
-            :asset => 'uspsa_popper.skp',
+            :asset => 'uspsa_popper.skp', :asset_yaw_degrees => 180.0,
             :paper => 0, :steel => 1, :no_shoot => 0
           },
           {

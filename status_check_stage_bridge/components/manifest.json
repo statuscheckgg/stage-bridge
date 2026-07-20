@@ -37,6 +37,12 @@
       "sha256": "0C41161F12BB841FF7A2B4F1357DF52FBD63A4B11DA5718B35A7E3F390C27295"
     },
     {
+      "file": "uspsa_swinger.skp",
+      "source_definition": "Group#167",
+      "bytes": 140377,
+      "sha256": "2ABC19E2C63B8F688B60675BB32EE77064B4D760D64AE10281828714D5892E18"
+    },
+    {
       "file": "uspsa_target_high.skp",
       "source_definition": "Uspsa target and stand high#1",
       "bytes": 80546,

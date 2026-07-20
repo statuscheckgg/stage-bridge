@@ -18,7 +18,7 @@ SketchUp Make 2017 is unsupported by Trimble. The SketchUp installer is not incl
 
 ## Install
 
-1. Download `stage-bridge-0.1.0-beta.5.rbz` from the latest GitHub prerelease.
+1. Download `stage-bridge-0.1.0-beta.6.rbz` from the latest GitHub prerelease.
 2. Open SketchUp Make 2017.
 3. Open `Window > Extension Manager`.
 4. Choose `Install Extension` and select the `.rbz` file.
@@ -38,7 +38,7 @@ Stage Bridge remembers the folder from the most recent successful STG import and
 
 Untagged geometry is never guessed. Export and validation code remains under development but is not exposed by the public MVP.
 
-Models imported with `0.1.0-beta.1` or `0.1.0-beta.2` must be re-imported from their original `.STG` file after upgrading. Beta 3 corrects adjustable fault-line endpoint placement and custom colors, maps the double-X start marker, and supplies a tagged swinger assembly. Exporting an older imported model is intentionally blocked.
+Re-import the original `.STG` into a new SketchUp model after upgrading. Beta 6 uses a new component schema so the reversed popper mechanism and complete Big Prop swinger replace cached definitions from earlier betas. Exporting an older imported model is intentionally blocked.
 
 For a complete hands-on beta pass, follow [Manual Beta Test](Docs/Manual-Beta-Test.md).
 
@@ -59,4 +59,4 @@ Real stages remain outside the repository. The checked-in fixture is synthetic a
 
 The first release lane is a free import-and-edit preview distributed outside Extension Warehouse. The current GitHub prerelease is unsigned and must only be installed when it was downloaded from this repository. A future signed package will be tested under SketchUp's `Identified Extensions Only` policy.
 
-GitHub Actions builds and validates an unsigned RBZ for every main-branch update and pull request. Follow [Release Checklist](Docs/Release-Checklist.md) and use [beta 5 release notes](Docs/Release-0.1.0-beta.5.md) for the current prerelease.
+GitHub Actions builds and validates an unsigned RBZ for every main-branch update and pull request. Follow [Release Checklist](Docs/Release-Checklist.md) and use [beta 6 release notes](Docs/Release-0.1.0-beta.6.md) for the current prerelease.

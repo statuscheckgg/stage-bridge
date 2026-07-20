@@ -9,7 +9,7 @@
 - [ ] Build with `Tools\Build-Rbz.ps1`.
 - [ ] Run `Tools\Test-RbzStructure.ps1` against the built RBZ.
 - [ ] Record the unsigned RBZ SHA-256 in the verification note.
-- [ ] Commit the source freeze and tag it `v0.1.0-beta.5`.
+- [ ] Commit the source freeze and tag it `v0.1.0-beta.6`.
 
 ## Future Signed Package
 
@@ -22,8 +22,8 @@
 
 ## GitHub Prerelease
 
-- [ ] Create a prerelease for tag `v0.1.0-beta.5`.
-- [ ] Use `Docs\Release-0.1.0-beta.5.md` as the release body.
+- [ ] Create a prerelease for tag `v0.1.0-beta.6`.
+- [ ] Use `Docs\Release-0.1.0-beta.6.md` as the release body.
 - [ ] Mark the release as a prerelease.
 - [ ] Attach the unsigned RBZ and its SHA-256 file, and label the prerelease and installation warning clearly.
 - [ ] Do not attach the SketchUp installer, real Practisim stages, temporary review models, or the full source prop collection.

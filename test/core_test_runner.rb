@@ -78,8 +78,11 @@ module StageBridgeCoreTests
       StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-swinger')[:key] == 'uspsa_swinger',
       'USPSA swinger must not use an unknown placeholder'
     )
+    swinger = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-swinger')
+    assert(swinger[:asset] == 'uspsa_swinger.skp', 'Swinger must use the complete Big Prop mechanism')
     popper = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-popper')
     assert(popper[:asset] == 'uspsa_popper.skp', 'Full popper must use the selected Big Prop asset')
+    assert(popper[:asset_yaw_degrees] == 180.0, 'Full popper mechanism must face the Practisim fall direction')
     no_shoot_stack = StatusCheckGG::StageBridge::Core::Catalog.for_prop_name('uspsa-two-stack-noshoot')
     assert(
       no_shoot_stack[:asset] == 'uspsa_two_stack_noshoot.skp',
@@ -159,7 +162,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 33 }
+    { 'status' => 'passed', 'tests' => 35 }
   end
 end
 

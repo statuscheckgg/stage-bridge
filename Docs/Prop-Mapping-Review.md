@@ -22,8 +22,8 @@ The packaged component controls only the SketchUp appearance. The original STG p
 | `uspsa-full-short-tilted` | `uspsa_target_short_tilted` | `uspsa_target_short_tilted.skp` | `USPSA target and stand#8` | Selected asset |
 | `uspsa-full-target` | `uspsa_target` | `uspsa_target_high.skp` | `Uspsa target and stand high#1` | Selected asset |
 | `uspsa-noshoot-onstand` | `uspsa_no_shoot` | `uspsa_no_shoot_high.skp` | `USPSA No shoot High` | Selected asset |
-| `uspsa-popper` | `uspsa_popper` | `uspsa_popper.skp` | `Group#180` | Approved leftmost full-size popper |
-| `uspsa-swinger` | `uspsa_swinger` | Local swinger frame and paper target | — | Procedural; candidate asset review needed |
+| `uspsa-popper` | `uspsa_popper` | `uspsa_popper.skp`, internal yaw 180 degrees | `Group#180` | Approved leftmost full-size popper; fall direction corrected |
+| `uspsa-swinger` | `uspsa_swinger` | `uspsa_swinger.skp` | `Group#167` | Selected complete swinger and counterweight assembly |
 | `uspsa-two-noshoot-vert` | `two_stack_no_shoot` | `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved white-center vertical stack |
 | `uspsa-two-stack-hc` | `two_stack_hc` | Derived black-center copy of `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved beta derivation |
 | `uspsa-two-stack-noshoot` | `two_stack_no_shoot` | `uspsa_two_stack_noshoot.skp` | `Group#275` | Approved white-center vertical stack |
@@ -98,6 +98,7 @@ For an 8 x 6 ft wall, the review should compare:
 | `uspsa_target_short_tilted.skp` | `USPSA target and stand#8` | `uspsa-full-short-tilted` |
 | `uspsa_no_shoot_high.skp` | `USPSA No shoot High` | `uspsa-noshoot`, `uspsa-noshoot-onstand` |
 | `uspsa_popper.skp` | `Group#180` | `uspsa-popper` and full-popper aliases |
+| `uspsa_swinger.skp` | `Group#167` | `uspsa-swinger`, `uspsa-swinger-right` |
 | `uspsa_two_stack_noshoot.skp` | `Group#275` | white-center and derived black-center vertical stacks |
 
 The Big Prop collection contains many similarly named target definitions with different heights, hard-cover/no-shoot arrangements, and nearby target combinations. These should not all alias to a single asset without reviewing the corresponding STG prop semantics.

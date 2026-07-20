@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-beta.6 - 2026-07-20
+
+- Reversed the internal yaw of the selected full-size popper asset so its mechanism and fall direction match Practisim without changing the preserved STG transform.
+- Replaced the simplified procedural swinger with complete Big Prop assembly `Group#167`, including its stand, pivot arms, target, and counterweight.
+- Reconfirmed the white-center two-stack mapping on Big Prop `Group#275`, whose visible no-shoot band sits between the target bodies without covering the upper headbox.
+- Bumped the model component schema so re-imported stages cannot reuse stale beta 5 popper or swinger definitions.
+
 ## 0.1.0-beta.5 - 2026-07-18
 
 - Removed SketchUp's stock template person whenever an STG stage is imported.

@@ -262,6 +262,7 @@ UI.start_timer(1.0, false) do
       ['barrel_stack', [22.9685039370, 22.9685039370, 75.4586614173]],
       ['start_position', [24.0, 24.0, 0.25]],
       ['uspsa_popper', [12.0, 50.066, 45.3908250742]],
+      ['uspsa_swinger', [55.3960112049, 20.0, 62.8852136276]],
       ['two_stack_no_shoot', [20.0, 18.0, 59.5996195242]],
       ['two_stack_hc', [20.0, 18.0, 59.5996195242]]
     ]
@@ -291,6 +292,12 @@ UI.start_timer(1.0, false) do
         wall_material = nested_assets.first.material
         if wall_material.nil? || wall_material.color.green < wall_material.color.red
           raise 'Plain 8-foot wall did not receive its green instance material'
+        end
+      end
+      if catalog_key == 'uspsa_popper'
+        popper_transform = nested_assets.first.transformation
+        unless popper_transform.xaxis.x.to_f < -0.99 && popper_transform.yaxis.y.to_f < -0.99
+          raise 'Full popper asset was not reversed to the Practisim fall direction'
         end
       end
     end

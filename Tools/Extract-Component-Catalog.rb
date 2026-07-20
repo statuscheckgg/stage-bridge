@@ -15,6 +15,7 @@ module StatusCheckGG
       'uspsa_target_short_tilted.skp' => 'USPSA target and stand#8',
       'uspsa_no_shoot_high.skp' => 'USPSA No shoot High',
       'uspsa_popper.skp' => 'Group#180',
+      'uspsa_swinger.skp' => 'Group#167',
       'uspsa_two_stack_noshoot.skp' => 'Group#275',
       'barrel.skp' => 'ske245',
       'barrel_stack.skp' => 'Stacked_Barrels',

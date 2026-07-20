@@ -22,6 +22,7 @@ try {
         'status_check_stage_bridge/components/start_position.skp',
         'status_check_stage_bridge/components/uspsa_no_shoot_high.skp',
         'status_check_stage_bridge/components/uspsa_popper.skp',
+        'status_check_stage_bridge/components/uspsa_swinger.skp',
         'status_check_stage_bridge/components/uspsa_target_high.skp',
         'status_check_stage_bridge/components/uspsa_target_short.skp',
         'status_check_stage_bridge/components/uspsa_target_short_tilted.skp',

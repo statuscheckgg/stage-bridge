@@ -8,6 +8,8 @@ The source collection itself is not packaged in the RBZ. Only mapped component d
 
 The plain 4 x 6 ft and 8 x 6 ft wall assets use the complete supported assemblies `Group#286` and `Group#336`, respectively. The older `Clear wall` asset remains packaged only for metric-wall mappings pending their separate review.
 
-The full-size steel popper uses `Group#180`, the leftmost full-size popper in the source collection's four-popper row. The vertical white-center stacked-target assembly uses `Group#275`. The hard-cover stacked-target mapping uses a private copy of that same assembly and replaces only its white center material with black when the component is built; the packaged source asset is not modified.
+The full-size steel popper uses `Group#180`, the leftmost full-size popper in the source collection's four-popper row. Stage Bridge rotates its packaged visual 180 degrees around the vertical axis so the mechanism matches Practisim's fall direction without changing the preserved STG yaw. The complete paper swinger uses `Group#167`, including its stand, pivot arms, target, and counterweight.
+
+The vertical white-center stacked-target assembly uses `Group#275`. Its white no-shoot band crosses the body area between the two scoring targets and does not cover the upper headbox. The hard-cover stacked-target mapping uses a private copy of that same assembly and replaces only its white center material with black when the component is built; the packaged source asset is not modified.
 
 `manifest.json` records the source collection fingerprint, source definition names, extracted asset sizes, and extracted asset fingerprints. The source collection's original local path is intentionally not stored in the distributable package.
