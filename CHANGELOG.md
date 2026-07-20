@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-beta.7 - 2026-07-20
+
+- Replaced the repeated Stage Bridge toolbar artwork with distinct function-specific icons for Import Stage, Add Prop, Validate Stage, and Export Stage.
+- Added a matching information-document icon for the Stage Metadata menu command.
+- Kept Validate and Export visibly disabled while preserving recognizable command silhouettes in their grayed-out state.
+
 ## 0.1.0-beta.6 - 2026-07-20
 
 - Reversed the internal yaw of the selected full-size popper asset so its mechanism and fall direction match Practisim without changing the preserved STG transform.

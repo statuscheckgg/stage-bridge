@@ -26,6 +26,15 @@ module StageBridgeCoreTests
   def self.run(root)
     assert(!StatusCheckGG::StageBridge::VALIDATE_COMMAND_ENABLED, 'Public preview must keep validation disabled')
     assert(!StatusCheckGG::StageBridge::EXPORT_COMMAND_ENABLED, 'Public preview must keep STG export disabled')
+    command_source = File.read(File.join(root, 'status_check_stage_bridge', 'sketchup', 'commands.rb'))
+    command_icons = ['import_stage', 'add_prop', 'stage_metadata', 'validate_stage', 'export_stage']
+    assert(
+      command_icons.all? do |icon_name|
+        command_source.include?("'#{icon_name}'") &&
+          File.exist?(File.join(root, 'status_check_stage_bridge', 'icons', "#{icon_name}.svg"))
+      end,
+      'Each Stage Bridge command must use its own packaged SVG icon'
+    )
 
     fixture = File.join(root, 'test', 'fixtures', 'synthetic-stage.STG')
     document = StatusCheckGG::StageBridge::Core::StageDocument.load(fixture)
@@ -166,7 +175,7 @@ module StageBridgeCoreTests
     File.delete(output_path) if File.exist?(output_path)
     File.delete(second_result[:backup_path]) if File.exist?(second_result[:backup_path])
 
-    { 'status' => 'passed', 'tests' => 38 }
+    { 'status' => 'passed', 'tests' => 39 }
   end
 end
 

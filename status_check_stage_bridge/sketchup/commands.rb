@@ -9,13 +9,15 @@ module StatusCheckGG
           Sketchup.register_importer(PractisimImporter.new)
           submenu = UI.menu('Extensions').add_submenu('Stage Bridge')
 
-          import_command = command('Import Practisim Stage') { import_stage }
-          add_command = command('Add Practisim Prop') { add_prop }
-          metadata_command = command('Stage Metadata') { ModelAdapter.edit_metadata(Sketchup.active_model) }
-          validate_command = gated_command('Validate Stage', VALIDATE_COMMAND_ENABLED) do
+          import_command = command('Import Practisim Stage', 'import_stage') { import_stage }
+          add_command = command('Add Practisim Prop', 'add_prop') { add_prop }
+          metadata_command = command('Stage Metadata', 'stage_metadata') do
+            ModelAdapter.edit_metadata(Sketchup.active_model)
+          end
+          validate_command = gated_command('Validate Stage', 'validate_stage', VALIDATE_COMMAND_ENABLED) do
             ModelAdapter.validate_model(Sketchup.active_model)
           end
-          export_command = gated_command('Export Practisim Stage', EXPORT_COMMAND_ENABLED) do
+          export_command = gated_command('Export Practisim Stage', 'export_stage', EXPORT_COMMAND_ENABLED) do
             ModelAdapter.export_model(Sketchup.active_model)
           end
 
@@ -28,19 +30,19 @@ module StatusCheckGG
           toolbar.restore
         end
 
-        def self.command(name, &block)
+        def self.command(name, icon_name, &block)
           item = UI::Command.new(name, &block)
           item.menu_text = name
           item.tooltip = name
           item.status_bar_text = "Stage Bridge: #{name}"
-          icon_path = File.join(File.dirname(__FILE__), '..', 'icons', 'stage_bridge.svg')
+          icon_path = File.join(File.dirname(__FILE__), '..', 'icons', "#{icon_name}.svg")
           item.small_icon = icon_path
           item.large_icon = icon_path
           item
         end
 
-        def self.gated_command(name, enabled, &block)
-          item = command(name) do
+        def self.gated_command(name, icon_name, enabled, &block)
+          item = command(name, icon_name) do
             if enabled
               block.call
             else

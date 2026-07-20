@@ -2,19 +2,19 @@
 
 Use a copy of a familiar Practisim stage containing several walls, targets, fault lines, and barrels. Keep the original `.STG` unchanged.
 
-## 1. Install Beta 6
+## 1. Install Beta 7
 
 1. Close SketchUp.
 2. Open SketchUp Make 2017.
 3. Select `Window > Extension Manager`.
 4. Select `Install Extension`.
-5. Choose `stage-bridge-0.1.0-beta.6.rbz`.
+5. Choose `stage-bridge-0.1.0-beta.7.rbz`.
 6. Restart SketchUp if requested.
 7. Confirm that `Extensions > Stage Bridge` is present.
 
 This public preview is unsigned. Only approve it when it was downloaded from the official `statuscheckgg/stage-bridge` GitHub prerelease. If SketchUp refuses to load unsigned extensions, use `Window > Extension Manager > Settings` to select `Unrestricted` for this local test, then restore your preferred policy afterward.
 
-Do not reuse a SketchUp model imported with an earlier beta. Re-import a familiar STG into a new model so the beta 6 component schema and mappings are visible.
+Do not reuse a SketchUp model imported before beta 6. Re-import a familiar STG into a new model so the current component schema and mappings are visible.
 
 ## 2. Import a Known Stage
 

@@ -30,10 +30,18 @@ Real reference stages stayed external to the repository. The Garage fixture used
 
 ## Release Candidate
 
-- Unsigned RBZ: `C:\Vibes\Projects\Personal\practisim-sketchup-bridge\dist\stage-bridge-0.1.0-beta.6.rbz`
-- Unsigned RBZ size: `1,443,848` bytes
-- Unsigned RBZ SHA-256: `E6AA2538D2F160090B719BC9F7D25D3D4EB59CF8543BED33A735F226A632CB90`
+- Unsigned RBZ: `C:\Vibes\Projects\Personal\practisim-sketchup-bridge\dist\stage-bridge-0.1.0-beta.7.rbz`
+- Unsigned RBZ size: `1,445,905` bytes
+- Unsigned RBZ SHA-256: `E64CF45198EDA8D55EE04FD4EA18E61B906B3F2761AC64531ACB0FE0BDEF1A58`
 - Public MVP command state: `Validate Stage` and `Export Practisim Stage` remain disabled by release constants.
 - Signing status: pending authenticated upload to SketchUp's Extension Signature Portal.
+
+## Beta 7 Toolbar Verification
+
+- Beta 7 changes only command icon selection and icon assets; the beta 6 prop mapping and transform implementation is unchanged.
+- SketchUp Make 2017 Extension Manager reports installed version `0.1.0-beta.7` as enabled and unsigned.
+- Live toolbar review confirmed distinct Import Stage, Add Prop, Validate Stage, and Export Stage icons; Validate and Export remain visibly grayed out.
+- All five command SVG files parse as XML and are present in the packaged RBZ, including the Stage Metadata icon.
+- RBZ structure validation passed with 35 entries, 13 hash-verified component assets, and no unexpected roots.
 
 The unsigned package is suitable for an explicitly labeled GitHub prerelease. It must not be described as signed until a portal-produced package passes a clean-profile install under `Identified Extensions Only`.
