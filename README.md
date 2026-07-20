@@ -6,6 +6,12 @@ The current public MVP is an **import-and-edit preview**. `Validate Stage` and `
 
 Stage Bridge is an independent compatibility tool. It is not affiliated with or endorsed by Practisim, SketchUp, or Trimble.
 
+## Download the Current Beta
+
+**[Download Stage Bridge 0.1.0-beta.7](https://github.com/statuscheckgg/stage-bridge/releases/tag/v0.1.0-beta.7)**
+
+This is an unsigned preview for SketchUp Make 2017 on Windows. `Validate Stage` and `Export Practisim Stage` remain disabled.
+
 ## Compatibility
 
 - Windows x64
